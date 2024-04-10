@@ -10,7 +10,7 @@ namespace MusicalProject
     {
         void Add(IComponente c);
         void Remove(IComponente c);
-        void GetChild(int i);
+        IComponente GetChild(int i);
         string ToString();
         bool Equals(object obj);
         int GetHashCode();

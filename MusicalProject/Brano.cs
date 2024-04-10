@@ -89,7 +89,7 @@ namespace MusicalProject
         {
             throw new NotImplementedException();
         }
-        public void GetChild(int i)
+        public IComponente GetChild(int i)
         {
             throw new NotImplementedException();
         }
