@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicalProject
 {
-    internal class Playlist
+    internal class Playlist : IComponente
     {
         //attributi
         private string _titolo;
@@ -43,5 +43,40 @@ namespace MusicalProject
             Brani = p.Brani;
         }
 
+        //metodo ToString
+        public override string ToString()
+        {
+            return "Titolo: " + Titolo + "\nDescrizione: " + Descrizione + "\nData creazione: " + Datacreazione + "\nBrani: " + Brani;
+        }
+
+        //metodo Equals
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Playlist);
+        }
+        public bool Equals(Playlist p)
+        {
+            return Titolo == p.Titolo && Descrizione == p.Descrizione && Datacreazione == p.Datacreazione && Brani == p.Brani;
+        }
+
+        //metodo GetHashCode (non implementato)
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        //metodi IComponente
+        public void Add(IComponente c)
+        {
+            Brani.Add((Brano)c);
+        }
+        public void Remove(IComponente c)
+        {
+            Brani.Remove((Brano)c);
+        }
+        public void GetChild(int i)
+        {
+            Brani[i].ToString();
+        }
     }
 }
