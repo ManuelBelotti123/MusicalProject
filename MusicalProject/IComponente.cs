@@ -13,5 +13,6 @@ namespace MusicalProject
         void GetChild(int i);
         string ToString();
         bool Equals(object obj);
+        int GetHashCode();
     }
 }
