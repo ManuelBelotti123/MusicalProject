@@ -8,13 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PSAMControlLibrary;
+//using PSAMControlLibrary;
+using WMPLib;
 
 namespace MusicalProject
 {
     public partial class Form1 : Form
     {
-        IncipitViewer viewer;
+        //IncipitViewer viewer;
+        WindowsMediaPlayer player = new WindowsMediaPlayer();
 
         public Form1()
         {
@@ -22,6 +24,22 @@ namespace MusicalProject
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            player.URL = "C:\\Users\\belotti.20181\\Downloads\\fileexample.mp3";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            player.controls.pause();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

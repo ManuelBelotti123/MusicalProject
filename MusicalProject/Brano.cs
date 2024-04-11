@@ -15,8 +15,9 @@ namespace MusicalProject
         private string _genere;
         private DateTime _datapubblicazione;
         private int _durata;
+        private string _path;
         private Spartito _spartito;
-        
+
         //properties
         public string Titolo { get => _titolo; set => _titolo = value; }
         public string Descrizione { get => _descrizione; set => _descrizione = value; }
@@ -24,17 +25,19 @@ namespace MusicalProject
         public string Genere { get => _genere; set => _genere = value; }
         public DateTime Datapubblicazione { get => _datapubblicazione; set => _datapubblicazione = value; }
         public int Durata { get => _durata; set => _durata = value; }
+        public string Path { get => _genere; set => _genere = value; }
         public Spartito Spartito { get => _spartito; set => _spartito = value; }
 
         //costruttori (dati, vuoto, copia)
-        public Brano(string titolo, string descrizione, string artisti, string genere, DateTime datapubblicazione, int durata, Spartito spartito)
+        public Brano(string titolo, string descrizione, string artisti, string genere, DateTime datapubblicazione, int durata, string path, Spartito spartito)
         {
             Titolo = titolo;
             Descrizione = descrizione;
             Artisti = artisti;
             Genere = genere;
-            Datapubblicazione = datapubblicazione;
+            Datapubblicazione = DateTime.Now;
             Durata = durata;
+            Path = path;
             Spartito = spartito;
         }
         public Brano()
@@ -45,6 +48,7 @@ namespace MusicalProject
             Genere = "";
             Datapubblicazione = DateTime.Now;
             Durata = 0;
+            Path = "";
             Spartito = new Spartito();
         }
         public Brano(Brano b)
@@ -55,6 +59,7 @@ namespace MusicalProject
             Genere = b.Genere;
             Datapubblicazione = b.Datapubblicazione;
             Durata = b.Durata;
+            Path = b.Path;
             Spartito = b.Spartito;
         }
 
@@ -71,7 +76,7 @@ namespace MusicalProject
         }
         public bool Equals(Brano b)
         {
-            return b != null && Titolo == b.Titolo && Descrizione == b.Descrizione && Artisti == b.Artisti && Genere == b.Genere && Datapubblicazione == b.Datapubblicazione && Durata == b.Durata && Spartito == b.Spartito;
+            return b != null && Titolo == b.Titolo && Descrizione == b.Descrizione && Artisti == b.Artisti && Genere == b.Genere && Datapubblicazione == b.Datapubblicazione && Durata == b.Durata && Path == b.Path && Spartito == b.Spartito;
         }
 
         //metodo GetHashCode
@@ -93,6 +98,5 @@ namespace MusicalProject
         {
             throw new NotImplementedException();
         }
-
     }
 }
