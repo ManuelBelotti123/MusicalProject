@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSAMControlLibrary;
 using WMPLib;
+using System.Text.Json;
 
 namespace MusicalProject
 {
@@ -21,6 +22,9 @@ namespace MusicalProject
         public Form1()
         {
             InitializeComponent();
+            panbrani.Visible = false;
+            panspartcanz.Visible = false;
+            pancreaspart.Visible = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -29,19 +33,59 @@ namespace MusicalProject
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void brani_Click(object sender, EventArgs e)
         {
-            player.URL = "C:\\Users\\belotti.20181\\Downloads\\fileexample.mp3";
+            //visibile il pannello dei brani
+            panspartcanz.Visible = false;
+            pancreaspart.Visible = false;
+            panbrani.Visible = true;
+            listView1.Items.Clear();
+
+            //carica i brani da file json
+            if (System.IO.File.Exists("brani.json"))
+            {
+                //leggi il file json
+                string json = System.IO.File.ReadAllText("brani.json");
+                //json deserializzato in lista di brani
+                List<Brano> brani = JsonSerializer.Deserialize<List<Brano>>(json);
+
+                //aggiungi i brani alla lista
+                foreach (Brano b in brani)
+                {
+                    ListViewItem item = new ListViewItem(b.Titolo);
+                    item.SubItems.Add(b.Artisti);
+                    item.SubItems.Add(b.Genere);
+                    item.SubItems.Add(b.Datapubblicazione.ToString());
+                    item.SubItems.Add(b.Durata.ToString());
+                    item.SubItems.Add(b.Descrizione);
+                    listView1.Items.Add(item);
+                }
+            }
+            else
+            {
+                //crea un file json vuoto
+                System.IO.File.WriteAllText("brani.json", "");
+                MessageBox.Show("File brani.json non trovato, creato file vuoto");
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void aggbrano_Click(object sender, EventArgs e)
         {
-            player.controls.pause();
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            //crea un form per inserire i dati del brano (da fare)
+            //crea un nuovo brano
+            Brano b = new Brano("ciao", "ciaone", "artist", "pop", DateTime.Now, 12, "/ciao", new Spartito());
+            //serializza il brano in json
+            string json = JsonSerializer.Serialize(b);
+            //aggiungi il brano al file json
+            System.IO.File.AppendAllText("brani.json", json);
+            //aggiungi il brano alla lista
+            ListViewItem item = new ListViewItem(b.Titolo);
+            item.SubItems.Add(b.Artisti);
+            item.SubItems.Add(b.Genere);
+            item.SubItems.Add(b.Datapubblicazione.ToString());
+            item.SubItems.Add(b.Durata.ToString());
+            item.SubItems.Add(b.Descrizione);
+            listView1.Items.Add(item);
         }
     }
 }
