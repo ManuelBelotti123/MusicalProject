@@ -82,24 +82,12 @@ namespace MusicalProject
 
         private void aggbrano_Click(object sender, EventArgs e)
         {
-            //crea un form per inserire i dati del brano (da fare)
-            //crea un nuovo brano
-            Brano b = new Brano("ciao", "ciaone", "artist", "pop", DateTime.Now, 12, "", new Spartito());
-            lbcp.Add(b);
-            //serializza la lisra in json with newtonsoft
+            //apri form 2 per inserire i dati del Brano
+            //string json di lbcp
             string json = JsonConvert.SerializeObject(lbcp);
-
-            //scrivi il json nel file
-            System.IO.File.WriteAllText("brani.json", json);
-
-            //aggiungi il brano alla lista
-            ListViewItem item = new ListViewItem(b.Titolo);
-            item.SubItems.Add(b.Descrizione);
-            item.SubItems.Add(b.Artisti);
-            item.SubItems.Add(b.Genere);
-            item.SubItems.Add(b.Datapubblicazione.ToString());
-            item.SubItems.Add(b.Durata.ToString());
-            listView1.Items.Add(item);
+            Form2 f2 = new Form2(this, json);
+            f2.ShowDialog();
+           
         }
 
         private void rembrano_Click(object sender, EventArgs e)

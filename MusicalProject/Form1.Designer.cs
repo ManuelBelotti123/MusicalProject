@@ -393,7 +393,6 @@
         private System.Windows.Forms.Button aggbrano;
         private System.Windows.Forms.Button modbrano;
         private System.Windows.Forms.Button rembrano;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader titolo;
         private System.Windows.Forms.ColumnHeader desc;
         private System.Windows.Forms.ColumnHeader artisti;
@@ -403,6 +402,7 @@
         private System.Windows.Forms.Button cercabrano;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox testocerca;
+        public System.Windows.Forms.ListView listView1;
     }
 }
 
