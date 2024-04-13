@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSAMControlLibrary;
 using WMPLib;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace MusicalProject
 {
@@ -18,6 +18,9 @@ namespace MusicalProject
     {
         //IncipitViewer viewer;
         WindowsMediaPlayer player = new WindowsMediaPlayer();
+
+        //lista globale brani
+        List<Brano> lbcp = new List<Brano>();
 
         public Form1()
         {
@@ -41,24 +44,32 @@ namespace MusicalProject
             panbrani.Visible = true;
             listView1.Items.Clear();
 
-            //carica i brani da file json
+            //carica i brani da file json o se file è vuoto
             if (System.IO.File.Exists("brani.json"))
             {
-                //leggi il file json
-                string json = System.IO.File.ReadAllText("brani.json");
-                //json deserializzato in lista di brani
-                List<Brano> brani = JsonSerializer.Deserialize<List<Brano>>(json);
-
-                //aggiungi i brani alla lista
-                foreach (Brano b in brani)
+                if (System.IO.File.ReadAllText("brani.json") != "")
                 {
-                    ListViewItem item = new ListViewItem(b.Titolo);
-                    item.SubItems.Add(b.Artisti);
-                    item.SubItems.Add(b.Genere);
-                    item.SubItems.Add(b.Datapubblicazione.ToString());
-                    item.SubItems.Add(b.Durata.ToString());
-                    item.SubItems.Add(b.Descrizione);
-                    listView1.Items.Add(item);
+                    //leggi il file json
+                    string json = System.IO.File.ReadAllText("brani.json");
+                    //json deserializzato in lista di brani
+                    lbcp = JsonConvert.DeserializeObject<List<Brano>>(json);
+
+                    //aggiungi i brani alla lista
+                    foreach (Brano b in lbcp)
+                    {
+                        //brano
+                        ListViewItem item = new ListViewItem(b.Titolo);
+                        item.SubItems.Add(b.Descrizione);
+                        item.SubItems.Add(b.Artisti);
+                        item.SubItems.Add(b.Genere);
+                        item.SubItems.Add(b.Datapubblicazione.ToString());
+                        item.SubItems.Add(b.Durata.ToString());
+                        listView1.Items.Add(item);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("File brani.json vuoto");
                 }
             }
             else
@@ -73,19 +84,27 @@ namespace MusicalProject
         {
             //crea un form per inserire i dati del brano (da fare)
             //crea un nuovo brano
-            Brano b = new Brano("ciao", "ciaone", "artist", "pop", DateTime.Now, 12, "/ciao", new Spartito());
-            //serializza il brano in json
-            string json = JsonSerializer.Serialize(b);
-            //aggiungi il brano al file json
-            System.IO.File.AppendAllText("brani.json", json);
+            Brano b = new Brano("ciao", "ciaone", "artist", "pop", DateTime.Now, 12, "", new Spartito());
+            lbcp.Add(b);
+            //serializza la lisra in json with newtonsoft
+            string json = JsonConvert.SerializeObject(lbcp);
+
+            //scrivi il json nel file
+            System.IO.File.WriteAllText("brani.json", json);
+
             //aggiungi il brano alla lista
             ListViewItem item = new ListViewItem(b.Titolo);
+            item.SubItems.Add(b.Descrizione);
             item.SubItems.Add(b.Artisti);
             item.SubItems.Add(b.Genere);
             item.SubItems.Add(b.Datapubblicazione.ToString());
             item.SubItems.Add(b.Durata.ToString());
-            item.SubItems.Add(b.Descrizione);
             listView1.Items.Add(item);
+        }
+
+        private void rembrano_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

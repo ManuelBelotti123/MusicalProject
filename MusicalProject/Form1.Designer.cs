@@ -31,24 +31,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panbrani = new System.Windows.Forms.Panel();
-            this.brani = new System.Windows.Forms.Button();
-            this.spartcanz = new System.Windows.Forms.Button();
-            this.creaspart = new System.Windows.Forms.Button();
             this.panspartcanz = new System.Windows.Forms.Panel();
             this.pancreaspart = new System.Windows.Forms.Panel();
+            this.creaspart = new System.Windows.Forms.Button();
+            this.spartcanz = new System.Windows.Forms.Button();
+            this.brani = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.aggbrano = new System.Windows.Forms.Button();
-            this.creaplaylist = new System.Windows.Forms.Button();
-            this.creacartella = new System.Windows.Forms.Button();
-            this.rembrano = new System.Windows.Forms.Button();
-            this.modbrano = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panbrani = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.titolo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.desc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,14 +50,20 @@
             this.genere = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.datapubb = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.durata = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
+            this.modbrano = new System.Windows.Forms.Button();
+            this.rembrano = new System.Windows.Forms.Button();
+            this.creacartella = new System.Windows.Forms.Button();
+            this.creaplaylist = new System.Windows.Forms.Button();
+            this.aggbrano = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panbrani.SuspendLayout();
             this.panspartcanz.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panbrani.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,49 +100,6 @@
             this.panel2.Size = new System.Drawing.Size(292, 583);
             this.panel2.TabIndex = 2;
             // 
-            // panbrani
-            // 
-            this.panbrani.Controls.Add(this.listView1);
-            this.panbrani.Controls.Add(this.button1);
-            this.panbrani.Controls.Add(this.modbrano);
-            this.panbrani.Controls.Add(this.rembrano);
-            this.panbrani.Controls.Add(this.creacartella);
-            this.panbrani.Controls.Add(this.creaplaylist);
-            this.panbrani.Controls.Add(this.aggbrano);
-            this.panbrani.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panbrani.Location = new System.Drawing.Point(292, 51);
-            this.panbrani.Name = "panbrani";
-            this.panbrani.Size = new System.Drawing.Size(769, 583);
-            this.panbrani.TabIndex = 3;
-            // 
-            // brani
-            // 
-            this.brani.Location = new System.Drawing.Point(18, 19);
-            this.brani.Name = "brani";
-            this.brani.Size = new System.Drawing.Size(254, 48);
-            this.brani.TabIndex = 0;
-            this.brani.Text = "I TUOI BRANI";
-            this.brani.UseVisualStyleBackColor = true;
-            this.brani.Click += new System.EventHandler(this.brani_Click);
-            // 
-            // spartcanz
-            // 
-            this.spartcanz.Location = new System.Drawing.Point(18, 73);
-            this.spartcanz.Name = "spartcanz";
-            this.spartcanz.Size = new System.Drawing.Size(254, 48);
-            this.spartcanz.TabIndex = 1;
-            this.spartcanz.Text = "SPARTITI E CANZONIERI";
-            this.spartcanz.UseVisualStyleBackColor = true;
-            // 
-            // creaspart
-            // 
-            this.creaspart.Location = new System.Drawing.Point(18, 127);
-            this.creaspart.Name = "creaspart";
-            this.creaspart.Size = new System.Drawing.Size(254, 48);
-            this.creaspart.TabIndex = 2;
-            this.creaspart.Text = "CREA SPARTITO";
-            this.creaspart.UseVisualStyleBackColor = true;
-            // 
             // panspartcanz
             // 
             this.panspartcanz.Controls.Add(this.pancreaspart);
@@ -158,6 +115,34 @@
             this.pancreaspart.Size = new System.Drawing.Size(200, 100);
             this.pancreaspart.TabIndex = 0;
             // 
+            // creaspart
+            // 
+            this.creaspart.Location = new System.Drawing.Point(18, 127);
+            this.creaspart.Name = "creaspart";
+            this.creaspart.Size = new System.Drawing.Size(254, 48);
+            this.creaspart.TabIndex = 2;
+            this.creaspart.Text = "CREA SPARTITO";
+            this.creaspart.UseVisualStyleBackColor = true;
+            // 
+            // spartcanz
+            // 
+            this.spartcanz.Location = new System.Drawing.Point(18, 73);
+            this.spartcanz.Name = "spartcanz";
+            this.spartcanz.Size = new System.Drawing.Size(254, 48);
+            this.spartcanz.TabIndex = 1;
+            this.spartcanz.Text = "SPARTITI E CANZONIERI";
+            this.spartcanz.UseVisualStyleBackColor = true;
+            // 
+            // brani
+            // 
+            this.brani.Location = new System.Drawing.Point(18, 19);
+            this.brani.Name = "brani";
+            this.brani.Size = new System.Drawing.Size(254, 48);
+            this.brani.TabIndex = 0;
+            this.brani.Text = "I TUOI BRANI";
+            this.brani.UseVisualStyleBackColor = true;
+            this.brani.Click += new System.EventHandler(this.brani_Click);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.pictureBox3);
@@ -170,6 +155,36 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(292, 226);
             this.panel3.TabIndex = 3;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::MusicalProject.Properties.Resources.backsong;
+            this.pictureBox3.Location = new System.Drawing.Point(51, 135);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(57, 48);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 13;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::MusicalProject.Properties.Resources.nextsong;
+            this.pictureBox2.Location = new System.Drawing.Point(177, 135);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(57, 48);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MusicalProject.Properties.Resources.playsong;
+            this.pictureBox1.Location = new System.Drawing.Point(114, 135);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // label3
             // 
@@ -189,90 +204,20 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Titolo Canzone";
             // 
-            // pictureBox1
+            // panbrani
             // 
-            this.pictureBox1.Image = global::MusicalProject.Properties.Resources.playsong;
-            this.pictureBox1.Location = new System.Drawing.Point(114, 135);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 48);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::MusicalProject.Properties.Resources.nextsong;
-            this.pictureBox2.Location = new System.Drawing.Point(177, 135);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(57, 48);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::MusicalProject.Properties.Resources.backsong;
-            this.pictureBox3.Location = new System.Drawing.Point(51, 135);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(57, 48);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
-            // 
-            // aggbrano
-            // 
-            this.aggbrano.Location = new System.Drawing.Point(65, 32);
-            this.aggbrano.Name = "aggbrano";
-            this.aggbrano.Size = new System.Drawing.Size(145, 35);
-            this.aggbrano.TabIndex = 0;
-            this.aggbrano.Text = "Aggiungi Brano";
-            this.aggbrano.UseVisualStyleBackColor = true;
-            this.aggbrano.Click += new System.EventHandler(this.aggbrano_Click);
-            // 
-            // creaplaylist
-            // 
-            this.creaplaylist.Location = new System.Drawing.Point(225, 505);
-            this.creaplaylist.Name = "creaplaylist";
-            this.creaplaylist.Size = new System.Drawing.Size(145, 35);
-            this.creaplaylist.TabIndex = 1;
-            this.creaplaylist.Text = "Crea Playlist";
-            this.creaplaylist.UseVisualStyleBackColor = true;
-            // 
-            // creacartella
-            // 
-            this.creacartella.Location = new System.Drawing.Point(390, 505);
-            this.creacartella.Name = "creacartella";
-            this.creacartella.Size = new System.Drawing.Size(145, 35);
-            this.creacartella.TabIndex = 2;
-            this.creacartella.Text = "Crea Cartella";
-            this.creacartella.UseVisualStyleBackColor = true;
-            // 
-            // rembrano
-            // 
-            this.rembrano.Location = new System.Drawing.Point(225, 32);
-            this.rembrano.Name = "rembrano";
-            this.rembrano.Size = new System.Drawing.Size(145, 35);
-            this.rembrano.TabIndex = 3;
-            this.rembrano.Text = "Rimuovi Brano";
-            this.rembrano.UseVisualStyleBackColor = true;
-            // 
-            // modbrano
-            // 
-            this.modbrano.Location = new System.Drawing.Point(383, 32);
-            this.modbrano.Name = "modbrano";
-            this.modbrano.Size = new System.Drawing.Size(145, 35);
-            this.modbrano.TabIndex = 4;
-            this.modbrano.Text = "Modifica Brano";
-            this.modbrano.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(548, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Cerca Brano";
-            this.button1.UseVisualStyleBackColor = true;
+            this.panbrani.Controls.Add(this.listView1);
+            this.panbrani.Controls.Add(this.button1);
+            this.panbrani.Controls.Add(this.modbrano);
+            this.panbrani.Controls.Add(this.rembrano);
+            this.panbrani.Controls.Add(this.creacartella);
+            this.panbrani.Controls.Add(this.creaplaylist);
+            this.panbrani.Controls.Add(this.aggbrano);
+            this.panbrani.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panbrani.Location = new System.Drawing.Point(292, 51);
+            this.panbrani.Name = "panbrani";
+            this.panbrani.Size = new System.Drawing.Size(769, 583);
+            this.panbrani.TabIndex = 3;
             // 
             // listView1
             // 
@@ -321,6 +266,62 @@
             this.durata.Text = "Durata";
             this.durata.Width = 103;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(548, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 35);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Cerca Brano";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // modbrano
+            // 
+            this.modbrano.Location = new System.Drawing.Point(383, 32);
+            this.modbrano.Name = "modbrano";
+            this.modbrano.Size = new System.Drawing.Size(145, 35);
+            this.modbrano.TabIndex = 4;
+            this.modbrano.Text = "Modifica Brano";
+            this.modbrano.UseVisualStyleBackColor = true;
+            // 
+            // rembrano
+            // 
+            this.rembrano.Location = new System.Drawing.Point(225, 32);
+            this.rembrano.Name = "rembrano";
+            this.rembrano.Size = new System.Drawing.Size(145, 35);
+            this.rembrano.TabIndex = 3;
+            this.rembrano.Text = "Rimuovi Brano";
+            this.rembrano.UseVisualStyleBackColor = true;
+            this.rembrano.Click += new System.EventHandler(this.rembrano_Click);
+            // 
+            // creacartella
+            // 
+            this.creacartella.Location = new System.Drawing.Point(390, 505);
+            this.creacartella.Name = "creacartella";
+            this.creacartella.Size = new System.Drawing.Size(145, 35);
+            this.creacartella.TabIndex = 2;
+            this.creacartella.Text = "Crea Cartella";
+            this.creacartella.UseVisualStyleBackColor = true;
+            // 
+            // creaplaylist
+            // 
+            this.creaplaylist.Location = new System.Drawing.Point(225, 505);
+            this.creaplaylist.Name = "creaplaylist";
+            this.creaplaylist.Size = new System.Drawing.Size(145, 35);
+            this.creaplaylist.TabIndex = 1;
+            this.creaplaylist.Text = "Crea Playlist";
+            this.creaplaylist.UseVisualStyleBackColor = true;
+            // 
+            // aggbrano
+            // 
+            this.aggbrano.Location = new System.Drawing.Point(65, 32);
+            this.aggbrano.Name = "aggbrano";
+            this.aggbrano.Size = new System.Drawing.Size(145, 35);
+            this.aggbrano.TabIndex = 0;
+            this.aggbrano.Text = "Aggiungi Brano";
+            this.aggbrano.UseVisualStyleBackColor = true;
+            this.aggbrano.Click += new System.EventHandler(this.aggbrano_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -336,13 +337,13 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panbrani.ResumeLayout(false);
             this.panspartcanz.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panbrani.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

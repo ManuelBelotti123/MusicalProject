@@ -25,7 +25,7 @@ namespace MusicalProject
         public string Genere { get => _genere; set => _genere = value; }
         public DateTime Datapubblicazione { get => _datapubblicazione; set => _datapubblicazione = value; }
         public int Durata { get => _durata; set => _durata = value; }
-        public string Path { get => _genere; set => _genere = value; }
+        public string Path { get => _path; set => _path = value; }
         public Spartito Spartito { get => _spartito; set => _spartito = value; }
 
         //costruttori (dati, vuoto, copia)
