@@ -45,6 +45,7 @@
             this.openfile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label8 = new System.Windows.Forms.Label();
+            this.modificabrano = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // aggiungibrano
@@ -187,11 +188,22 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Dati Brano";
             // 
+            // modificabrano
+            // 
+            this.modificabrano.Location = new System.Drawing.Point(320, 335);
+            this.modificabrano.Name = "modificabrano";
+            this.modificabrano.Size = new System.Drawing.Size(126, 38);
+            this.modificabrano.TabIndex = 17;
+            this.modificabrano.Text = "Modifica Brano";
+            this.modificabrano.UseVisualStyleBackColor = true;
+            this.modificabrano.Click += new System.EventHandler(this.modificabrano_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.modificabrano);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.openfile);
             this.Controls.Add(this.label7);
@@ -235,5 +247,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox generetext;
+        private System.Windows.Forms.Button modificabrano;
     }
 }

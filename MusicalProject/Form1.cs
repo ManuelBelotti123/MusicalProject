@@ -85,7 +85,7 @@ namespace MusicalProject
             //apri form 2 per inserire i dati del Brano
             //string json di lbcp
             string json = JsonConvert.SerializeObject(lbcp);
-            Form2 f2 = new Form2(this, json);
+            Form2 f2 = new Form2(this, json, true);
             f2.ShowDialog();
            
         }
@@ -115,23 +115,17 @@ namespace MusicalProject
             //modifica brano selezionato
             if (listView1.SelectedItems.Count > 0)
             {
-                //crea un form per modificare i dati del brano (da fare)
-                //modifica il brano selezionato
-                Brano b = lbcp[listView1.SelectedItems[0].Index];
-                b.Titolo = "modificato";
-                //serializza la lista in json
+                //apri form 2 per modificare i dati del Brano
+                //string json di lbcp
                 string json = JsonConvert.SerializeObject(lbcp);
-                //scrivi il json nel file
-                System.IO.File.WriteAllText("brani.json", json);
-                //aggiorna la listView
-                listView1.Items[listView1.SelectedItems[0].Index].Text = b.Titolo;
+                Form2 f2 = new Form2(this, json, false);
+                f2.ShowDialog();
             }
             else
             {
-                lbcp.RemoveAt(0);
+                MessageBox.Show("Selezionare un brano da modificare");
             }
         }
-
         private void cercabrano_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
