@@ -104,7 +104,22 @@ namespace MusicalProject
 
         private void rembrano_Click(object sender, EventArgs e)
         {
-
+            //rimuovi il brano selezionato dalla lista
+            if (listView1.SelectedItems.Count > 0)
+            {
+                //rimuovi il brano dalla lista
+                lbcp.RemoveAt(listView1.SelectedItems[0].Index);
+                //serializza la lista in json
+                string json = JsonConvert.SerializeObject(lbcp);
+                //scrivi il json nel file
+                System.IO.File.WriteAllText("brani.json", json);
+                //rimuovi il brano dalla listView
+                listView1.Items.RemoveAt(listView1.SelectedItems[0].Index);
+            }
+            else
+            {
+                lbcp.RemoveAt(0);
+            }
         }
     }
 }
