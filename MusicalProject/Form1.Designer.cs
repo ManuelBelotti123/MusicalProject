@@ -50,12 +50,14 @@
             this.genere = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.datapubb = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.durata = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
             this.modbrano = new System.Windows.Forms.Button();
             this.rembrano = new System.Windows.Forms.Button();
             this.creacartella = new System.Windows.Forms.Button();
             this.creaplaylist = new System.Windows.Forms.Button();
             this.aggbrano = new System.Windows.Forms.Button();
+            this.cercabrano = new System.Windows.Forms.Button();
+            this.testocerca = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panspartcanz.SuspendLayout();
@@ -206,8 +208,10 @@
             // 
             // panbrani
             // 
+            this.panbrani.Controls.Add(this.label4);
+            this.panbrani.Controls.Add(this.testocerca);
+            this.panbrani.Controls.Add(this.cercabrano);
             this.panbrani.Controls.Add(this.listView1);
-            this.panbrani.Controls.Add(this.button1);
             this.panbrani.Controls.Add(this.modbrano);
             this.panbrani.Controls.Add(this.rembrano);
             this.panbrani.Controls.Add(this.creacartella);
@@ -229,9 +233,9 @@
             this.datapubb,
             this.durata});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(65, 90);
+            this.listView1.Location = new System.Drawing.Point(47, 90);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(628, 395);
+            this.listView1.Size = new System.Drawing.Size(681, 395);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -266,18 +270,9 @@
             this.durata.Text = "Durata";
             this.durata.Width = 103;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(548, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Cerca Brano";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // modbrano
             // 
-            this.modbrano.Location = new System.Drawing.Point(383, 32);
+            this.modbrano.Location = new System.Drawing.Point(341, 32);
             this.modbrano.Name = "modbrano";
             this.modbrano.Size = new System.Drawing.Size(145, 35);
             this.modbrano.TabIndex = 4;
@@ -287,7 +282,7 @@
             // 
             // rembrano
             // 
-            this.rembrano.Location = new System.Drawing.Point(225, 32);
+            this.rembrano.Location = new System.Drawing.Point(190, 32);
             this.rembrano.Name = "rembrano";
             this.rembrano.Size = new System.Drawing.Size(145, 35);
             this.rembrano.TabIndex = 3;
@@ -315,13 +310,39 @@
             // 
             // aggbrano
             // 
-            this.aggbrano.Location = new System.Drawing.Point(65, 32);
+            this.aggbrano.Location = new System.Drawing.Point(47, 32);
             this.aggbrano.Name = "aggbrano";
-            this.aggbrano.Size = new System.Drawing.Size(145, 35);
+            this.aggbrano.Size = new System.Drawing.Size(137, 35);
             this.aggbrano.TabIndex = 0;
             this.aggbrano.Text = "Aggiungi Brano";
             this.aggbrano.UseVisualStyleBackColor = true;
             this.aggbrano.Click += new System.EventHandler(this.aggbrano_Click);
+            // 
+            // cercabrano
+            // 
+            this.cercabrano.Location = new System.Drawing.Point(687, 32);
+            this.cercabrano.Name = "cercabrano";
+            this.cercabrano.Size = new System.Drawing.Size(41, 35);
+            this.cercabrano.TabIndex = 7;
+            this.cercabrano.Text = "Cerca Brano";
+            this.cercabrano.UseVisualStyleBackColor = true;
+            this.cercabrano.Click += new System.EventHandler(this.cercabrano_Click);
+            // 
+            // testocerca
+            // 
+            this.testocerca.Location = new System.Drawing.Point(552, 38);
+            this.testocerca.Name = "testocerca";
+            this.testocerca.Size = new System.Drawing.Size(129, 26);
+            this.testocerca.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(552, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Cercare";
             // 
             // Form1
             // 
@@ -345,6 +366,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panbrani.ResumeLayout(false);
+            this.panbrani.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -377,8 +399,10 @@
         private System.Windows.Forms.ColumnHeader artisti;
         private System.Windows.Forms.ColumnHeader genere;
         private System.Windows.Forms.ColumnHeader datapubb;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ColumnHeader durata;
+        private System.Windows.Forms.Button cercabrano;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox testocerca;
     }
 }
 

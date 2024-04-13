@@ -143,6 +143,26 @@ namespace MusicalProject
                 lbcp.RemoveAt(0);
             }
         }
+
+        private void cercabrano_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            //aggiungi i brani alla lista
+            foreach (Brano b in lbcp)
+            {
+                if (b.Titolo.Contains(testocerca.Text) || b.Descrizione.Contains(testocerca.Text) || b.Artisti.Contains(testocerca.Text) || b.Genere.Contains(testocerca.Text) || b.Datapubblicazione.ToString().Contains(testocerca.Text) || b.Durata.ToString().Contains(testocerca.Text))
+                {
+                    //brano
+                    ListViewItem item = new ListViewItem(b.Titolo);
+                    item.SubItems.Add(b.Descrizione);
+                    item.SubItems.Add(b.Artisti);
+                    item.SubItems.Add(b.Genere);
+                    item.SubItems.Add(b.Datapubblicazione.ToString());
+                    item.SubItems.Add(b.Durata.ToString());
+                    listView1.Items.Add(item);
+                }
+            }
+        }
     }
 }
 
