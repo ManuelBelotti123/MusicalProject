@@ -283,6 +283,7 @@
             this.modbrano.TabIndex = 4;
             this.modbrano.Text = "Modifica Brano";
             this.modbrano.UseVisualStyleBackColor = true;
+            this.modbrano.Click += new System.EventHandler(this.modbrano_Click);
             // 
             // rembrano
             // 

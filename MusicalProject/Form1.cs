@@ -121,6 +121,28 @@ namespace MusicalProject
                 lbcp.RemoveAt(0);
             }
         }
+
+        private void modbrano_Click(object sender, EventArgs e)
+        {
+            //modifica brano selezionato
+            if (listView1.SelectedItems.Count > 0)
+            {
+                //crea un form per modificare i dati del brano (da fare)
+                //modifica il brano selezionato
+                Brano b = lbcp[listView1.SelectedItems[0].Index];
+                b.Titolo = "modificato";
+                //serializza la lista in json
+                string json = JsonConvert.SerializeObject(lbcp);
+                //scrivi il json nel file
+                System.IO.File.WriteAllText("brani.json", json);
+                //aggiorna la listView
+                listView1.Items[listView1.SelectedItems[0].Index].Text = b.Titolo;
+            }
+            else
+            {
+                lbcp.RemoveAt(0);
+            }
+        }
     }
 }
 
