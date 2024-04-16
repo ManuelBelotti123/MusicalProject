@@ -85,7 +85,7 @@ namespace MusicalProject
             //apri form 2 per inserire i dati del Brano
             //string json di lbcp
             string json = JsonConvert.SerializeObject(lbcp);
-            Form2 f2 = new Form2(this, json, true);
+            Form2 f2 = new Form2(this, true);
             f2.ShowDialog();
            
         }
@@ -118,7 +118,7 @@ namespace MusicalProject
                 //apri form 2 per modificare i dati del Brano
                 //string json di lbcp
                 string json = JsonConvert.SerializeObject(lbcp);
-                Form2 f2 = new Form2(this, json, false);
+                Form2 f2 = new Form2(this, false);
                 f2.ShowDialog();
             }
             else

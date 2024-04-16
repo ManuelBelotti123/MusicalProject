@@ -19,10 +19,12 @@ namespace MusicalProject
         private List<Brano> lbcp;
         private bool vble;
 
-        public Form2(Form1 form1, string json, bool vble)
+        public Form2(Form1 form1, bool vble)
         {
             InitializeComponent();
             this.form1 = form1;
+            string json = System.IO.File.ReadAllText("brani.json");
+            //json deserializzato in lista di brani
             lbcp = JsonConvert.DeserializeObject<List<Brano>>(json);
             this.vble = vble;
         }
@@ -82,8 +84,9 @@ namespace MusicalProject
 
         private void modificabrano_Click(object sender, EventArgs e)
         {
+            //modifica il brano selezionato dalla lista (errore index)
+            //selectedItems[0].Index non funziona
             //modifica il brano selezionato dalla lista
-            //modifica il brano selezionato
             Brano b = lbcp[form1.listView1.SelectedItems[0].Index];
             b.Titolo = titolotext.Text;
             b.Descrizione = desctext.Text;
