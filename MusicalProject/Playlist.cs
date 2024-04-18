@@ -13,13 +13,15 @@ namespace MusicalProject
         private string _descrizione;
         private DateTime _datacreazione;
         private List<IComponente> _brani;
+        private string _version;
 
         //proprerties su una riga
         public string Titolo { get => _titolo; set => _titolo = value; }
         public string Descrizione { get => _descrizione; set => _descrizione = value; }
         public DateTime Datacreazione { get => _datacreazione; set => _datacreazione = value; }
         public List<IComponente> Brani { get => _brani; set => _brani = value; }
-         
+        public string Version { get => _version; set => _version = value; }
+
         //costruttori (dati, vuoto, copia)
         public Playlist(string titolo, string descrizione)
         {
@@ -27,6 +29,7 @@ namespace MusicalProject
             Descrizione = descrizione;
             Datacreazione = DateTime.Now;
             Brani = new List<IComponente>();
+            Version = "playlist";
         }
         public Playlist()
         {
@@ -34,6 +37,7 @@ namespace MusicalProject
             Descrizione = "";
             Datacreazione = DateTime.Now;
             Brani = new List<IComponente>();
+            Version = "playlist";
         }
         public Playlist(Playlist p)
         {
@@ -41,6 +45,7 @@ namespace MusicalProject
             Descrizione = p.Descrizione;
             Datacreazione = p.Datacreazione;
             Brani = p.Brani;
+            Version = "playlist";
         }
 
         //metodo ToString

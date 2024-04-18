@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +19,7 @@ namespace MusicalProject
         private int _durata;
         private string _path;
         private Spartito _spartito;
+        private string _version;
 
         //properties
         public string Titolo { get => _titolo; set => _titolo = value; }
@@ -27,6 +30,7 @@ namespace MusicalProject
         public int Durata { get => _durata; set => _durata = value; }
         public string Path { get => _path; set => _path = value; }
         public Spartito Spartito { get => _spartito; set => _spartito = value; }
+        public string Version { get => _version; set => _version = value; }
 
         //costruttori (dati, vuoto, copia)
         public Brano(string titolo, string descrizione, string artisti, string genere, DateTime datapubblicazione, int durata, string path, Spartito spartito)
@@ -39,6 +43,7 @@ namespace MusicalProject
             Durata = durata;
             Path = path;
             Spartito = spartito;
+            Version = "brano";
         }
         public Brano()
         {
@@ -50,6 +55,7 @@ namespace MusicalProject
             Durata = 0;
             Path = "";
             Spartito = new Spartito();
+            Version = "brano";
         }
         public Brano(Brano b)
         {
@@ -61,6 +67,7 @@ namespace MusicalProject
             Durata = b.Durata;
             Path = b.Path;
             Spartito = b.Spartito;
+            Version = "brano";
         }
 
         //metodo ToString

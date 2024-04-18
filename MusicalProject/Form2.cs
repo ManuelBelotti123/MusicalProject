@@ -25,7 +25,11 @@ namespace MusicalProject
             this.form1 = form1;
             string json = System.IO.File.ReadAllText("brani.json");
             //json deserializzato in lista di brani
-            lbcp = JsonConvert.DeserializeObject<List<Brano>>(json);
+            lbcp = new List<Brano>();
+            if (System.IO.File.ReadAllText("brani.json") != "")
+            {
+                lbcp = JsonConvert.DeserializeObject<List<Brano>>(json);
+            }
             this.vble = vble;
         }
 

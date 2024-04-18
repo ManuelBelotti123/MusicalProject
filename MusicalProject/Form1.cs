@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PSAMControlLibrary;
+//using PSAMControlLibrary;
 using WMPLib;
 using Newtonsoft.Json;
 
@@ -20,7 +20,7 @@ namespace MusicalProject
         WindowsMediaPlayer player = new WindowsMediaPlayer();
 
         //lista globale brani
-        List<Brano> lbcp = new List<Brano>();
+        List<IComponente> lbcp = new List<IComponente>();
 
         public Form1()
         {
@@ -52,11 +52,12 @@ namespace MusicalProject
                     //leggi il file json
                     string json = System.IO.File.ReadAllText("brani.json");
                     //json deserializzato in lista di brani
-                    lbcp = JsonConvert.DeserializeObject<List<Brano>>(json);
+                    lbcp = JsonConvert.DeserializeObject<List<IComponente>>(json);
 
                     //aggiungi i brani alla lista
-                    foreach (Brano b in lbcp)
+                    foreach (IComponente br in lbcp)
                     {
+                        Brano b = (Brano)br;
                         //brano
                         ListViewItem item = new ListViewItem(b.Titolo);
                         item.SubItems.Add(b.Descrizione);
@@ -144,6 +145,11 @@ namespace MusicalProject
                     listView1.Items.Add(item);
                 }
             }
+        }
+
+        private void panbrani_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

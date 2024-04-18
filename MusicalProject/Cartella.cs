@@ -13,12 +13,14 @@ namespace MusicalProject
         private string _descrizione;
         private DateTime _datacreazione;
         private List<Playlist> _playlists;
+        private string _version;
 
         //properties
         public string Titolo { get => _titolo; set => _titolo = value; }
         public string Descrizione { get => _descrizione; set => _descrizione = value; }
         public DateTime Datacreazione { get => _datacreazione; set => _datacreazione = value; }
         public List<Playlist> Playlists { get => _playlists; set => _playlists = value; }
+        public string Version { get => _version; set => _version = value; }
 
         //costruttori (dati, vuoto, copia)
         public Cartella(string titolo, string descrizione)
@@ -27,6 +29,7 @@ namespace MusicalProject
             Descrizione = descrizione;
             Datacreazione = DateTime.Now;
             Playlists = new List<Playlist>();
+            Version = "cartella";
         }
         public Cartella()
         {
@@ -34,6 +37,7 @@ namespace MusicalProject
             Descrizione = "";
             Datacreazione = DateTime.Now;
             Playlists = new List<Playlist>();
+            Version = "cartella";
         }
         public Cartella(Cartella c)
         {
@@ -41,6 +45,7 @@ namespace MusicalProject
             Descrizione = c.Descrizione;
             Datacreazione = c.Datacreazione;
             Playlists = c.Playlists;
+            Version = "cartella";
         }
 
         //metodo ToString
