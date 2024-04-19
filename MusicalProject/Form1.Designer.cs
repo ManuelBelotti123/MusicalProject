@@ -58,6 +58,7 @@
             this.creacartella = new System.Windows.Forms.Button();
             this.creaplaylist = new System.Windows.Forms.Button();
             this.aggbrano = new System.Windows.Forms.Button();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panspartcanz.SuspendLayout();
@@ -74,19 +75,17 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(707, 33);
+            this.panel1.Size = new System.Drawing.Size(1060, 51);
             this.panel1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 24);
+            this.label1.Size = new System.Drawing.Size(207, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Musical Project";
             // 
@@ -99,55 +98,49 @@
             this.panel2.Controls.Add(this.brani);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 33);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(0, 51);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(195, 379);
+            this.panel2.Size = new System.Drawing.Size(292, 583);
             this.panel2.TabIndex = 2;
             // 
             // panspartcanz
             // 
             this.panspartcanz.Controls.Add(this.pancreaspart);
-            this.panspartcanz.Location = new System.Drawing.Point(12, 118);
-            this.panspartcanz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panspartcanz.Location = new System.Drawing.Point(18, 182);
             this.panspartcanz.Name = "panspartcanz";
-            this.panspartcanz.Size = new System.Drawing.Size(161, 101);
+            this.panspartcanz.Size = new System.Drawing.Size(242, 155);
             this.panspartcanz.TabIndex = 0;
             // 
             // pancreaspart
             // 
-            this.pancreaspart.Location = new System.Drawing.Point(22, 22);
-            this.pancreaspart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pancreaspart.Location = new System.Drawing.Point(33, 34);
             this.pancreaspart.Name = "pancreaspart";
-            this.pancreaspart.Size = new System.Drawing.Size(133, 65);
+            this.pancreaspart.Size = new System.Drawing.Size(200, 100);
             this.pancreaspart.TabIndex = 0;
             // 
             // creaspart
             // 
-            this.creaspart.Location = new System.Drawing.Point(12, 83);
-            this.creaspart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.creaspart.Location = new System.Drawing.Point(18, 128);
             this.creaspart.Name = "creaspart";
-            this.creaspart.Size = new System.Drawing.Size(169, 31);
+            this.creaspart.Size = new System.Drawing.Size(254, 48);
             this.creaspart.TabIndex = 2;
             this.creaspart.Text = "CREA SPARTITO";
             this.creaspart.UseVisualStyleBackColor = true;
             // 
             // spartcanz
             // 
-            this.spartcanz.Location = new System.Drawing.Point(12, 47);
-            this.spartcanz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spartcanz.Location = new System.Drawing.Point(18, 72);
             this.spartcanz.Name = "spartcanz";
-            this.spartcanz.Size = new System.Drawing.Size(169, 31);
+            this.spartcanz.Size = new System.Drawing.Size(254, 48);
             this.spartcanz.TabIndex = 1;
             this.spartcanz.Text = "SPARTITI E CANZONIERI";
             this.spartcanz.UseVisualStyleBackColor = true;
             // 
             // brani
             // 
-            this.brani.Location = new System.Drawing.Point(12, 12);
-            this.brani.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.brani.Location = new System.Drawing.Point(18, 18);
             this.brani.Name = "brani";
-            this.brani.Size = new System.Drawing.Size(169, 31);
+            this.brani.Size = new System.Drawing.Size(254, 48);
             this.brani.TabIndex = 0;
             this.brani.Text = "I TUOI BRANI";
             this.brani.UseVisualStyleBackColor = true;
@@ -161,19 +154,17 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 232);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(0, 357);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(195, 147);
+            this.panel3.Size = new System.Drawing.Size(292, 226);
             this.panel3.TabIndex = 3;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::MusicalProject.Properties.Resources.backsong;
-            this.pictureBox3.Location = new System.Drawing.Point(34, 88);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(51, 135);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(38, 31);
+            this.pictureBox3.Size = new System.Drawing.Size(57, 48);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 13;
             this.pictureBox3.TabStop = false;
@@ -181,10 +172,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::MusicalProject.Properties.Resources.nextsong;
-            this.pictureBox2.Location = new System.Drawing.Point(118, 88);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(177, 135);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 31);
+            this.pictureBox2.Size = new System.Drawing.Size(57, 48);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
@@ -192,10 +182,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::MusicalProject.Properties.Resources.playsong;
-            this.pictureBox1.Location = new System.Drawing.Point(76, 88);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(114, 135);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 31);
+            this.pictureBox1.Size = new System.Drawing.Size(57, 48);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -203,25 +192,24 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(54, 36);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(81, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.Size = new System.Drawing.Size(122, 20);
             this.label3.TabIndex = 11;
             this.label3.Text = "Artitsti Canzone";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(86, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 10;
             this.label2.Text = "Titolo Canzone";
             // 
             // panbrani
             // 
+            this.panbrani.Controls.Add(this.treeView1);
             this.panbrani.Controls.Add(this.label4);
             this.panbrani.Controls.Add(this.testocerca);
             this.panbrani.Controls.Add(this.cercabrano);
@@ -232,37 +220,33 @@
             this.panbrani.Controls.Add(this.creaplaylist);
             this.panbrani.Controls.Add(this.aggbrano);
             this.panbrani.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panbrani.Location = new System.Drawing.Point(195, 33);
-            this.panbrani.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panbrani.Location = new System.Drawing.Point(292, 51);
             this.panbrani.Name = "panbrani";
-            this.panbrani.Size = new System.Drawing.Size(512, 379);
+            this.panbrani.Size = new System.Drawing.Size(768, 583);
             this.panbrani.TabIndex = 3;
             this.panbrani.Paint += new System.Windows.Forms.PaintEventHandler(this.panbrani_Paint);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(368, 10);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(552, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(65, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Cercare";
             // 
             // testocerca
             // 
-            this.testocerca.Location = new System.Drawing.Point(368, 25);
-            this.testocerca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.testocerca.Location = new System.Drawing.Point(552, 38);
             this.testocerca.Name = "testocerca";
-            this.testocerca.Size = new System.Drawing.Size(87, 20);
+            this.testocerca.Size = new System.Drawing.Size(128, 26);
             this.testocerca.TabIndex = 8;
             // 
             // cercabrano
             // 
-            this.cercabrano.Location = new System.Drawing.Point(458, 21);
-            this.cercabrano.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cercabrano.Location = new System.Drawing.Point(687, 32);
             this.cercabrano.Name = "cercabrano";
-            this.cercabrano.Size = new System.Drawing.Size(27, 23);
+            this.cercabrano.Size = new System.Drawing.Size(40, 35);
             this.cercabrano.TabIndex = 7;
             this.cercabrano.Text = "Cerca Brano";
             this.cercabrano.UseVisualStyleBackColor = true;
@@ -278,10 +262,9 @@
             this.datapubb,
             this.durata});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(31, 58);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Location = new System.Drawing.Point(390, 89);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(455, 258);
+            this.listView1.Size = new System.Drawing.Size(336, 395);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -318,10 +301,9 @@
             // 
             // modbrano
             // 
-            this.modbrano.Location = new System.Drawing.Point(227, 21);
-            this.modbrano.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modbrano.Location = new System.Drawing.Point(340, 32);
             this.modbrano.Name = "modbrano";
-            this.modbrano.Size = new System.Drawing.Size(97, 23);
+            this.modbrano.Size = new System.Drawing.Size(146, 35);
             this.modbrano.TabIndex = 4;
             this.modbrano.Text = "Modifica Brano";
             this.modbrano.UseVisualStyleBackColor = true;
@@ -329,10 +311,9 @@
             // 
             // rembrano
             // 
-            this.rembrano.Location = new System.Drawing.Point(127, 21);
-            this.rembrano.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rembrano.Location = new System.Drawing.Point(190, 32);
             this.rembrano.Name = "rembrano";
-            this.rembrano.Size = new System.Drawing.Size(97, 23);
+            this.rembrano.Size = new System.Drawing.Size(146, 35);
             this.rembrano.TabIndex = 3;
             this.rembrano.Text = "Rimuovi Brano";
             this.rembrano.UseVisualStyleBackColor = true;
@@ -340,44 +321,48 @@
             // 
             // creacartella
             // 
-            this.creacartella.Location = new System.Drawing.Point(260, 328);
-            this.creacartella.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.creacartella.Location = new System.Drawing.Point(390, 505);
             this.creacartella.Name = "creacartella";
-            this.creacartella.Size = new System.Drawing.Size(97, 23);
+            this.creacartella.Size = new System.Drawing.Size(146, 35);
             this.creacartella.TabIndex = 2;
             this.creacartella.Text = "Crea Cartella";
             this.creacartella.UseVisualStyleBackColor = true;
             // 
             // creaplaylist
             // 
-            this.creaplaylist.Location = new System.Drawing.Point(150, 328);
-            this.creaplaylist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.creaplaylist.Location = new System.Drawing.Point(225, 505);
             this.creaplaylist.Name = "creaplaylist";
-            this.creaplaylist.Size = new System.Drawing.Size(97, 23);
+            this.creaplaylist.Size = new System.Drawing.Size(146, 35);
             this.creaplaylist.TabIndex = 1;
             this.creaplaylist.Text = "Crea Playlist";
             this.creaplaylist.UseVisualStyleBackColor = true;
             // 
             // aggbrano
             // 
-            this.aggbrano.Location = new System.Drawing.Point(31, 21);
-            this.aggbrano.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.aggbrano.Location = new System.Drawing.Point(46, 32);
             this.aggbrano.Name = "aggbrano";
-            this.aggbrano.Size = new System.Drawing.Size(91, 23);
+            this.aggbrano.Size = new System.Drawing.Size(136, 35);
             this.aggbrano.TabIndex = 0;
             this.aggbrano.Text = "Aggiungi Brano";
             this.aggbrano.UseVisualStyleBackColor = true;
             this.aggbrano.Click += new System.EventHandler(this.aggbrano_Click);
             // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(46, 89);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(325, 395);
+            this.treeView1.TabIndex = 10;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 412);
+            this.ClientSize = new System.Drawing.Size(1060, 634);
             this.Controls.Add(this.panbrani);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -428,6 +413,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox testocerca;
         public System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }
 

@@ -44,31 +44,56 @@ namespace MusicalProject
             pancreaspart.Visible = false;
             panbrani.Visible = true;
             listView1.Items.Clear();
+            treeView1.Nodes.Clear();
 
             //carica i brani da file json o se file è vuoto
             if (System.IO.File.Exists("brani.json"))
             {
                 if (System.IO.File.ReadAllText("brani.json") != "")
                 {
-                    //leggi il file json
-                    string json = System.IO.File.ReadAllText("brani.json");
-                    //json deserializzato in lista di brani
-                    var settings = new JsonSerializerSettings();
-                    settings.Converters = new List<JsonConverter> { new IComponenteConverter() };
-                    lbcp = JsonConvert.DeserializeObject<List<IComponente>>(json);
-
-                    //aggiungi i brani alla lista
-                    foreach (IComponente br in lbcp)
+                    //json deserializzato in lista di IComponente
+                    lbcp = JsonConvert.DeserializeObject<List<IComponente>>(System.IO.File.ReadAllText("brani.json"));
+                    //aggiungi i brani alla treeView
+                    foreach (IComponente c in lbcp)
                     {
-                        Brano b = (Brano)br;
-                        //brano
-                        ListViewItem item = new ListViewItem(b.Titolo);
-                        item.SubItems.Add(b.Descrizione);
-                        item.SubItems.Add(b.Artisti);
-                        item.SubItems.Add(b.Genere);
-                        item.SubItems.Add(b.Datapubblicazione.ToString());
-                        item.SubItems.Add(b.Durata.ToString());
-                        listView1.Items.Add(item);
+                        //se è una Cartella
+                        if (c is Cartella)
+                        {
+                            Cartella cr = ((Cartella)c);
+                            TreeNode tn = new TreeNode(cr.Titolo);
+                            treeView1.Nodes.Add(tn);
+                            //aggiungi nei figli le playlist al suo interno
+                            foreach (Playlist p in cr.Playlists)
+                            {
+                                TreeNode tn1 = new TreeNode(p.Titolo);
+                                tn.Nodes.Add(tn1);
+                                //per ogni playlist aggiungi i brani al suo interno
+                                foreach (Brano b in p.Brani)
+                                {
+                                    TreeNode tn2 = new TreeNode(b.Titolo);
+                                    tn1.Nodes.Add(tn2);
+                                }
+                            }
+                        }
+                        //se è una playlist
+                        else if (c is Playlist)
+                        {
+                            Playlist p = ((Playlist)c);
+                            TreeNode tn = new TreeNode(p.Titolo);
+                            treeView1.Nodes.Add(tn);
+                            //aggiungi nei figli i brani al suo interno
+                            foreach (Brano b in p.Brani)
+                            {
+                                TreeNode tn1 = new TreeNode(b.Titolo);
+                                tn.Nodes.Add(tn1);
+                            }
+                        }
+                        //se è un brano
+                        else if (c is Brano)
+                        {
+                            TreeNode tn = new TreeNode(((Brano)c).Titolo);
+                            treeView1.Nodes.Add(tn);
+                        }
                     }
                 }
                 else
