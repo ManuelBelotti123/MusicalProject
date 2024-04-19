@@ -61,7 +61,7 @@ namespace MusicalProject
         }
         public bool Equals(Playlist p)
         {
-            return Titolo == p.Titolo && Descrizione == p.Descrizione && Datacreazione == p.Datacreazione && Brani == p.Brani;
+            return p != null && Titolo == p.Titolo && Descrizione == p.Descrizione && Datacreazione == p.Datacreazione && Brani == p.Brani;
         }
 
         //metodo GetHashCode (non implementato)

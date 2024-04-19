@@ -112,7 +112,7 @@ namespace MusicalProject
         private void aggbrano_Click(object sender, EventArgs e)
         {
             //apri form 2 per inserire i dati del Brano
-            Form2 f2 = new Form2(this, true);
+            Form2 f2 = new Form2(this, true, 1);
             f2.ShowDialog(); 
         }
 
@@ -144,7 +144,7 @@ namespace MusicalProject
                 //apri form 2 per modificare i dati del Brano
                 //string json di lbcp
                 string json = JsonConvert.SerializeObject(lbcp);
-                Form2 f2 = new Form2(this, false);
+                Form2 f2 = new Form2(this, false, 1);
                 f2.ShowDialog();
             }
             else
@@ -180,7 +180,16 @@ namespace MusicalProject
         private void creaplaylist_Click(object sender, EventArgs e)
         {
             //apri form 2 per inserire i dati della Playlist
-            Form2 f2 = new Form2(this, true);
+            //1 brano, 2 playlist, 3 cartella
+            Form2 f2 = new Form2(this, true, 2);
+            f2.ShowDialog();
+        }
+
+        private void creacartella_Click(object sender, EventArgs e)
+        {
+            //apri form 2 per inserire i dati della Cartella
+            //1 brano, 2 playlist, 3 cartella
+            Form2 f2 = new Form2(this, true, 3);
             f2.ShowDialog();
         }
     }

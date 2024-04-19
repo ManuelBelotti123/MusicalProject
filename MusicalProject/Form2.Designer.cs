@@ -46,6 +46,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label8 = new System.Windows.Forms.Label();
             this.modificabrano = new System.Windows.Forms.Button();
+            this.branoplaylist = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // aggiungibrano
@@ -198,11 +200,29 @@
             this.modificabrano.UseVisualStyleBackColor = true;
             this.modificabrano.Click += new System.EventHandler(this.modificabrano_Click);
             // 
+            // branoplaylist
+            // 
+            this.branoplaylist.Location = new System.Drawing.Point(151, 280);
+            this.branoplaylist.Name = "branoplaylist";
+            this.branoplaylist.Size = new System.Drawing.Size(100, 26);
+            this.branoplaylist.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(147, 257);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 20);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Playlist";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.branoplaylist);
             this.Controls.Add(this.modificabrano);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.openfile);
@@ -248,5 +268,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox generetext;
         private System.Windows.Forms.Button modificabrano;
+        private System.Windows.Forms.TextBox branoplaylist;
+        private System.Windows.Forms.Label label9;
     }
 }

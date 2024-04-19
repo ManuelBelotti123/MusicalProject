@@ -327,6 +327,7 @@
             this.creacartella.TabIndex = 2;
             this.creacartella.Text = "Crea Cartella";
             this.creacartella.UseVisualStyleBackColor = true;
+            this.creacartella.Click += new System.EventHandler(this.creacartella_Click);
             // 
             // creaplaylist
             // 
