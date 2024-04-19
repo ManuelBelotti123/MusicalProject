@@ -8,9 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using PSAMControlLibrary;
+using PSAMControlLibrary;
 using WMPLib;
 using Newtonsoft.Json;
+using MusicalProject.Properties;
 
 namespace MusicalProject
 {
@@ -52,6 +53,8 @@ namespace MusicalProject
                     //leggi il file json
                     string json = System.IO.File.ReadAllText("brani.json");
                     //json deserializzato in lista di brani
+                    var settings = new JsonSerializerSettings();
+                    settings.Converters = new List<JsonConverter> { new IComponenteConverter() };
                     lbcp = JsonConvert.DeserializeObject<List<IComponente>>(json);
 
                     //aggiungi i brani alla lista

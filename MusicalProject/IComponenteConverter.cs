@@ -12,7 +12,37 @@ namespace MusicalProject
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            JToken t = JToken.FromObject(value);
+
+            if (t.Type != JTokenType.Object)
+            {
+                t.WriteTo(writer);
+            }
+            else
+            {
+                IComponente comp = value as IComponente;
+                JObject o = (JObject)t;
+
+                if (comp != null)
+                {
+                    if (comp is Brano)
+                    {
+                        o.AddFirst(new JProperty("type", "Dog"));
+                        //o.Find
+                    }
+                    else if (comp is Playlist)
+                    {
+                        o.AddFirst(new JProperty("type", "Cat"));
+                    }
+
+                    /*foreach (IComponente childcomp in childcomp.Children)
+                    {
+                        // ???
+                    }*/
+
+                    o.WriteTo(writer);
+                }
+            }
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
