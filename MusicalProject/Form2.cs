@@ -56,34 +56,25 @@ namespace MusicalProject
 
         private void aggiungibrano_Click(object sender, EventArgs e)
         {
-            //rendi visibile aggiungibrano
-            //if tutti i campi sono pieni and
+            //se tutti i campi sono compilati, allora aggiungi il brano alla treeView
             if (titolotext.Text != "" && desctext.Text != "" && artistitext.Text != "" && generetext.Text != "" && duratatext.Text != "" && openFileDialog1.FileName != "")
             {
+                //crea un nuovo brano
                 Brano b = new Brano(titolotext.Text, desctext.Text, artistitext.Text, generetext.Text, dateTimePicker1.Value, int.Parse(duratatext.Text), openFileDialog1.FileName, new Spartito());
-                Cartella c = new Cartella();
-                lbcp.Add(c);
-                //serializza la lisra in json with newtonsoft
+                //aggiungi il brano alla lista
+                lbcp.Add(b);
+                //serializza la lista in json
                 string json = JsonConvert.SerializeObject(lbcp);
-
                 //scrivi il json nel file
                 System.IO.File.WriteAllText("brani.json", json);
-
-                //aggiungi il brano alla lista
-                ListViewItem item = new ListViewItem(b.Titolo);
-                item.SubItems.Add(b.Descrizione);
-                item.SubItems.Add(b.Artisti);
-                item.SubItems.Add(b.Genere);
-                item.SubItems.Add(b.Datapubblicazione.ToString());
-                item.SubItems.Add(b.Durata.ToString());
-                form1.listView1.Items.Add(item);
-
+                //aggiungi il brano alla treeView di form1
+                form1.treeView1.Nodes.Add(new TreeNode(b.Titolo));
                 //chiudi il form
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Inserire tutti i campi");
+                MessageBox.Show("Compilare tutti i campi");
             }
         }
 

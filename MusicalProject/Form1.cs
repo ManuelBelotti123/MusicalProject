@@ -112,11 +112,8 @@ namespace MusicalProject
         private void aggbrano_Click(object sender, EventArgs e)
         {
             //apri form 2 per inserire i dati del Brano
-            //string json di lbcp
-            string json = JsonConvert.SerializeObject(lbcp);
             Form2 f2 = new Form2(this, true);
-            f2.ShowDialog();
-           
+            f2.ShowDialog(); 
         }
 
         private void rembrano_Click(object sender, EventArgs e)
@@ -178,6 +175,13 @@ namespace MusicalProject
         private void panbrani_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void creaplaylist_Click(object sender, EventArgs e)
+        {
+            //apri form 2 per inserire i dati della Playlist
+            Form2 f2 = new Form2(this, true);
+            f2.ShowDialog();
         }
     }
 }

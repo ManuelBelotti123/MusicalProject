@@ -336,6 +336,7 @@
             this.creaplaylist.TabIndex = 1;
             this.creaplaylist.Text = "Crea Playlist";
             this.creaplaylist.UseVisualStyleBackColor = true;
+            this.creaplaylist.Click += new System.EventHandler(this.creaplaylist_Click);
             // 
             // aggbrano
             // 
@@ -413,7 +414,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox testocerca;
         public System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.TreeView treeView1;
+        public System.Windows.Forms.TreeView treeView1;
     }
 }
 
