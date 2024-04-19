@@ -132,11 +132,11 @@ namespace MusicalProject
         }
         private void cercabrano_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
+            /*listView1.Items.Clear();
             //aggiungi i brani alla lista
-            foreach (Brano b in lbcp)
+            foreach (IComponente b in lbcp)
             {
-                if (b.Titolo.Contains(testocerca.Text) || b.Descrizione.Contains(testocerca.Text) || b.Artisti.Contains(testocerca.Text) || b.Genere.Contains(testocerca.Text) || b.Datapubblicazione.ToString().Contains(testocerca.Text) || b.Durata.ToString().Contains(testocerca.Text))
+                if (b.Titolo.Contains(testocerca.Text))
                 {
                     //brano
                     ListViewItem item = new ListViewItem(b.Titolo);
@@ -147,7 +147,7 @@ namespace MusicalProject
                     item.SubItems.Add(b.Durata.ToString());
                     listView1.Items.Add(item);
                 }
-            }
+            }*/
         }
 
         private void panbrani_Paint(object sender, PaintEventArgs e)

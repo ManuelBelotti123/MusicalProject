@@ -16,7 +16,7 @@ namespace MusicalProject
     {
 
         private Form1 form1;
-        private List<Brano> lbcp;
+        private List<IComponente> lbcp;
         private bool vble;
 
         public Form2(Form1 form1, bool vble)
@@ -25,10 +25,10 @@ namespace MusicalProject
             this.form1 = form1;
             string json = System.IO.File.ReadAllText("brani.json");
             //json deserializzato in lista di brani
-            lbcp = new List<Brano>();
+            lbcp = new List<IComponente>();
             if (System.IO.File.ReadAllText("brani.json") != "")
             {
-                lbcp = JsonConvert.DeserializeObject<List<Brano>>(json);
+                lbcp = JsonConvert.DeserializeObject<List<IComponente>>(json);
             }
             this.vble = vble;
         }
@@ -61,7 +61,8 @@ namespace MusicalProject
             if (titolotext.Text != "" && desctext.Text != "" && artistitext.Text != "" && generetext.Text != "" && duratatext.Text != "" && openFileDialog1.FileName != "")
             {
                 Brano b = new Brano(titolotext.Text, desctext.Text, artistitext.Text, generetext.Text, dateTimePicker1.Value, int.Parse(duratatext.Text), openFileDialog1.FileName, new Spartito());
-                lbcp.Add(b);
+                Cartella c = new Cartella();
+                lbcp.Add(c);
                 //serializza la lisra in json with newtonsoft
                 string json = JsonConvert.SerializeObject(lbcp);
 
@@ -91,7 +92,8 @@ namespace MusicalProject
             //modifica il brano selezionato dalla lista (errore index)
             //selectedItems[0].Index non funziona
             //modifica il brano selezionato dalla lista
-            Brano b = lbcp[form1.listView1.SelectedItems[0].Index];
+            IComponente br = lbcp[form1.listView1.SelectedItems[0].Index];
+            Brano b = (Brano)br;
             b.Titolo = titolotext.Text;
             b.Descrizione = desctext.Text;
             b.Artisti = artistitext.Text;

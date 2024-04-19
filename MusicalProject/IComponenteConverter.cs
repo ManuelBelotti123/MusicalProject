@@ -12,37 +12,7 @@ namespace MusicalProject
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            JToken t = JToken.FromObject(value);
-
-            if (t.Type != JTokenType.Object)
-            {
-                t.WriteTo(writer);
-            }
-            else
-            {
-                IComponente comp = value as IComponente;
-                JObject o = (JObject)t;
-
-                if (comp != null)
-                {
-                    if (comp is Brano)
-                    {
-                        o.AddFirst(new JProperty("type", "Dog"));
-                        //o.Find
-                    }
-                    else if (comp is Playlist)
-                    {
-                        o.AddFirst(new JProperty("type", "Cat"));
-                    }
-
-                    /*foreach (IComponente childcomp in childcomp.Children)
-                    {
-                        // ???
-                    }*/
-
-                    o.WriteTo(writer);
-                }
-            }
+            serializer.Serialize(writer, value);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -73,6 +43,11 @@ namespace MusicalProject
         public override bool CanConvert(Type objectType)
         {
             return typeof(IComponente).IsAssignableFrom(objectType);
+        }
+
+        public override bool CanWrite
+        {
+            get { return false; }
         }
     }
 }
