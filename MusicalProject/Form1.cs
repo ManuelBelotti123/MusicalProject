@@ -212,6 +212,8 @@ namespace MusicalProject
         private void cercabrano_Click(object sender, EventArgs e)
         {
             //cerca brano nella lista e stampa i risultati con nella listView
+            //aggiorna il file json e la lista
+            lbcp = JsonConvert.DeserializeObject<List<IComponente>>(System.IO.File.ReadAllText("brani.json"));
             listView1.Items.Clear();
             if (testocerca.Text != "")
             {

@@ -86,6 +86,20 @@ namespace MusicalProject
                                     if (p.Titolo == branoplaylist.Text)
                                     {
                                         p.Add(b);
+                                        //aggiungi il brano alla treeView
+                                        foreach (TreeNode tn in form1.treeView1.Nodes)
+                                        {
+                                            if (tn.Text == cr.Titolo)
+                                            {
+                                                foreach (TreeNode tn2 in tn.Nodes)
+                                                {
+                                                    if (tn2.Text == branoplaylist.Text)
+                                                    {
+                                                        tn2.Nodes.Add(new TreeNode(b.Titolo));
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
