@@ -118,21 +118,78 @@ namespace MusicalProject
 
         private void rembrano_Click(object sender, EventArgs e)
         {
-            //rimuovi il brano selezionato dalla lista
-            if (listView1.SelectedItems.Count > 0)
+            //rimuovi il brano selezionato dalla treeView
+            if (treeView1.SelectedNode != null)
             {
-                //rimuovi il brano dalla lista
-                lbcp.RemoveAt(listView1.SelectedItems[0].Index);
+                //cerca il brano selezionato nella lista
+                foreach (IComponente c in lbcp)
+                {
+                    if (c is Brano)
+                    {
+                        Brano b = ((Brano)c);
+                        if (b.Titolo == treeView1.SelectedNode.Text)
+                        {
+                            lbcp.Remove(b);
+                            treeView1.Nodes.Remove(treeView1.SelectedNode);
+                            break;
+                        }
+                    }
+                    else if (c is Cartella)
+                    {
+                        Cartella cr = ((Cartella)c);
+                        foreach (Playlist p in cr.Playlists)
+                        {
+                            if (p.Titolo == treeView1.SelectedNode.Text)
+                            {
+                                cr.Playlists.Remove(p);
+                                treeView1.Nodes.Remove(treeView1.SelectedNode);
+                                break;
+                            }
+                            else
+                            {
+                                foreach (Brano b in p.Brani)
+                                {
+                                    if (b.Titolo == treeView1.SelectedNode.Text)
+                                    {
+                                        p.Brani.Remove(b);
+                                        treeView1.Nodes.Remove(treeView1.SelectedNode);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (c is Playlist)
+                    {
+                        Playlist p = ((Playlist)c);
+                        if (p.Titolo == treeView1.SelectedNode.Text)
+                        {
+                            lbcp.Remove(p);
+                            treeView1.Nodes.Remove(treeView1.SelectedNode);
+                            break;
+                        }
+                        else
+                        {
+                            foreach (Brano b in p.Brani)
+                            {
+                                if (b.Titolo == treeView1.SelectedNode.Text)
+                                {
+                                    p.Brani.Remove(b);
+                                    treeView1.Nodes.Remove(treeView1.SelectedNode);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
                 //serializza la lista in json
                 string json = JsonConvert.SerializeObject(lbcp);
                 //scrivi il json nel file
                 System.IO.File.WriteAllText("brani.json", json);
-                //rimuovi il brano dalla listView
-                listView1.Items.RemoveAt(listView1.SelectedItems[0].Index);
             }
             else
             {
-                lbcp.RemoveAt(0);
+                MessageBox.Show("Selezionare un brano da rimuovere");
             }
         }
 
@@ -154,22 +211,69 @@ namespace MusicalProject
         }
         private void cercabrano_Click(object sender, EventArgs e)
         {
-            /*listView1.Items.Clear();
-            //aggiungi i brani alla lista
-            foreach (IComponente b in lbcp)
+            //cerca brano nella lista e stampa i risultati con nella listView
+            listView1.Items.Clear();
+            if (testocerca.Text != "")
             {
-                if (b.Titolo.Contains(testocerca.Text))
+                foreach (IComponente c in lbcp)
                 {
-                    //brano
-                    ListViewItem item = new ListViewItem(b.Titolo);
-                    item.SubItems.Add(b.Descrizione);
-                    item.SubItems.Add(b.Artisti);
-                    item.SubItems.Add(b.Genere);
-                    item.SubItems.Add(b.Datapubblicazione.ToString());
-                    item.SubItems.Add(b.Durata.ToString());
-                    listView1.Items.Add(item);
+                    if (c is Brano)
+                    {
+                        Brano b = ((Brano)c);
+                        //se tutti i campi di brano contengono testocerca.Text
+                        if (b.Titolo.Contains(testocerca.Text) || b.Descrizione.Contains(testocerca.Text) || b.Artisti.Contains(testocerca.Text) || b.Genere.Contains(testocerca.Text) || b.Datapubblicazione.ToString().Contains(testocerca.Text) || b.Durata.ToString().Contains(testocerca.Text))
+                        {
+                            //aggiungi alla listView
+                            ListViewItem lvi = new ListViewItem(b.Titolo);
+                            lvi.SubItems.Add(b.Descrizione);
+                            lvi.SubItems.Add(b.Artisti);
+                            lvi.SubItems.Add(b.Genere);
+                            lvi.SubItems.Add(b.Datapubblicazione.ToString());
+                            lvi.SubItems.Add(b.Durata.ToString());
+                            listView1.Items.Add(lvi);
+                        }
+                    }
+                    else if (c is Playlist)
+                    {
+                        //cerca in tutti i brani della playlist in tutti i campi, se contengono testocerca.Text allora aggiungi la playlist alla listView
+                        Playlist p = ((Playlist)c);
+                        foreach (Brano b in p.Brani)
+                        {
+                            if (b.Titolo.Contains(testocerca.Text) || b.Descrizione.Contains(testocerca.Text) || b.Artisti.Contains(testocerca.Text) || b.Genere.Contains(testocerca.Text) || b.Datapubblicazione.ToString().Contains(testocerca.Text) || b.Durata.ToString().Contains(testocerca.Text))
+                            {
+                                ListViewItem lvi = new ListViewItem(b.Titolo);
+                                lvi.SubItems.Add(b.Descrizione);
+                                lvi.SubItems.Add(b.Artisti);
+                                lvi.SubItems.Add(b.Genere);
+                                lvi.SubItems.Add(b.Datapubblicazione.ToString());
+                                lvi.SubItems.Add(b.Durata.ToString());
+                                listView1.Items.Add(lvi);
+                            }
+                        }
+                    }
+                    else if (c is Cartella)
+                    {
+                        //cerca nelle cartelle e nelle playlist in tutti i campi, se contengono testocerca.Text allora aggiungi la cartella alla listView
+                        Cartella cr = ((Cartella)c);
+                        foreach (Playlist p in cr.Playlists)
+                        {
+                            foreach (Brano b in p.Brani)
+                            {
+                                if (b.Titolo.Contains(testocerca.Text) || b.Descrizione.Contains(testocerca.Text) || b.Artisti.Contains(testocerca.Text) || b.Genere.Contains(testocerca.Text) || b.Datapubblicazione.ToString().Contains(testocerca.Text) || b.Durata.ToString().Contains(testocerca.Text))
+                                {
+                                    ListViewItem lvi = new ListViewItem(b.Titolo);
+                                    lvi.SubItems.Add(b.Descrizione);
+                                    lvi.SubItems.Add(b.Artisti);
+                                    lvi.SubItems.Add(b.Genere);
+                                    lvi.SubItems.Add(b.Datapubblicazione.ToString());
+                                    lvi.SubItems.Add(b.Durata.ToString());
+                                    listView1.Items.Add(lvi);
+                                }
+                            }
+                        }
+                    }
                 }
-            }*/
+            }
         }
 
         private void panbrani_Paint(object sender, PaintEventArgs e)
