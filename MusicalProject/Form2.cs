@@ -62,7 +62,8 @@ namespace MusicalProject
             if (typeaggmod == 1) //se è un brano
             {
                 //se tutti i campi sono compilati, allora aggiungi il brano alla treeView
-                if (titolotext.Text != "" && desctext.Text != "" && artistitext.Text != "" && generetext.Text != "" && duratatext.Text != "" && openFileDialog1.FileName != "")
+                //se il path del file non è mp3
+                if (titolotext.Text != "" && desctext.Text != "" && artistitext.Text != "" && generetext.Text != "" && duratatext.Text != "" && openFileDialog1.FileName.EndsWith(".mp3"))
                 {
                     //crea un nuovo brano
                     Brano b = new Brano(titolotext.Text, desctext.Text, artistitext.Text, generetext.Text, dateTimePicker1.Value, int.Parse(duratatext.Text), openFileDialog1.FileName, new Spartito());

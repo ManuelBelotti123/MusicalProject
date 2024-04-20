@@ -40,9 +40,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelartisti = new System.Windows.Forms.Label();
+            this.labeltitolo = new System.Windows.Forms.Label();
             this.panbrani = new System.Windows.Forms.Panel();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.label4 = new System.Windows.Forms.Label();
             this.testocerca = new System.Windows.Forms.TextBox();
             this.cercabrano = new System.Windows.Forms.Button();
@@ -58,7 +59,8 @@
             this.creacartella = new System.Windows.Forms.Button();
             this.creaplaylist = new System.Windows.Forms.Button();
             this.aggbrano = new System.Windows.Forms.Button();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.playbrano = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panspartcanz.SuspendLayout();
@@ -151,8 +153,8 @@
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.labelartisti);
+            this.panel3.Controls.Add(this.labeltitolo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 357);
             this.panel3.Name = "panel3";
@@ -188,27 +190,30 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label3
+            // labelartisti
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(81, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 20);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Artitsti Canzone";
+            this.labelartisti.AutoSize = true;
+            this.labelartisti.Location = new System.Drawing.Point(81, 84);
+            this.labelartisti.Name = "labelartisti";
+            this.labelartisti.Size = new System.Drawing.Size(122, 20);
+            this.labelartisti.TabIndex = 11;
+            this.labelartisti.Text = "Artitsti Canzone";
             // 
-            // label2
+            // labeltitolo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 20);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Titolo Canzone";
+            this.labeltitolo.AutoSize = true;
+            this.labeltitolo.Location = new System.Drawing.Point(84, 60);
+            this.labeltitolo.Name = "labeltitolo";
+            this.labeltitolo.Size = new System.Drawing.Size(115, 20);
+            this.labeltitolo.TabIndex = 10;
+            this.labeltitolo.Text = "Titolo Canzone";
             // 
             // panbrani
             // 
+            this.panbrani.Controls.Add(this.playbrano);
+            this.panbrani.Controls.Add(this.label5);
             this.panbrani.Controls.Add(this.treeView1);
             this.panbrani.Controls.Add(this.label4);
             this.panbrani.Controls.Add(this.testocerca);
@@ -225,6 +230,13 @@
             this.panbrani.Size = new System.Drawing.Size(768, 583);
             this.panbrani.TabIndex = 3;
             this.panbrani.Paint += new System.Windows.Forms.PaintEventHandler(this.panbrani_Paint);
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(46, 105);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(325, 379);
+            this.treeView1.TabIndex = 10;
             // 
             // label4
             // 
@@ -262,9 +274,9 @@
             this.datapubb,
             this.durata});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(390, 89);
+            this.listView1.Location = new System.Drawing.Point(390, 105);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(336, 395);
+            this.listView1.Size = new System.Drawing.Size(336, 379);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -321,7 +333,7 @@
             // 
             // creacartella
             // 
-            this.creacartella.Location = new System.Drawing.Point(390, 505);
+            this.creacartella.Location = new System.Drawing.Point(198, 505);
             this.creacartella.Name = "creacartella";
             this.creacartella.Size = new System.Drawing.Size(146, 35);
             this.creacartella.TabIndex = 2;
@@ -331,7 +343,7 @@
             // 
             // creaplaylist
             // 
-            this.creaplaylist.Location = new System.Drawing.Point(225, 505);
+            this.creaplaylist.Location = new System.Drawing.Point(46, 505);
             this.creaplaylist.Name = "creaplaylist";
             this.creaplaylist.Size = new System.Drawing.Size(146, 35);
             this.creaplaylist.TabIndex = 1;
@@ -349,12 +361,24 @@
             this.aggbrano.UseVisualStyleBackColor = true;
             this.aggbrano.Click += new System.EventHandler(this.aggbrano_Click);
             // 
-            // treeView1
+            // label5
             // 
-            this.treeView1.Location = new System.Drawing.Point(46, 89);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(325, 395);
-            this.treeView1.TabIndex = 10;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(42, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(174, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Cartelle - Playlist - Brani";
+            // 
+            // playbrano
+            // 
+            this.playbrano.Location = new System.Drawing.Point(350, 505);
+            this.playbrano.Name = "playbrano";
+            this.playbrano.Size = new System.Drawing.Size(146, 35);
+            this.playbrano.TabIndex = 12;
+            this.playbrano.Text = "Play Brano";
+            this.playbrano.UseVisualStyleBackColor = true;
+            this.playbrano.Click += new System.EventHandler(this.playbrano_Click);
             // 
             // Form1
             // 
@@ -395,8 +419,8 @@
         private System.Windows.Forms.Panel panspartcanz;
         private System.Windows.Forms.Panel pancreaspart;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelartisti;
+        private System.Windows.Forms.Label labeltitolo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -416,6 +440,8 @@
         private System.Windows.Forms.TextBox testocerca;
         public System.Windows.Forms.ListView listView1;
         public System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button playbrano;
     }
 }
 

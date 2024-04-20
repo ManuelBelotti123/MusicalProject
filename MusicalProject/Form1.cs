@@ -22,6 +22,8 @@ namespace MusicalProject
 
         //lista globale brani
         List<IComponente> lbcp = new List<IComponente>();
+        //variabile per la riproduzione del brano
+        bool playing;
 
         public Form1()
         {
@@ -29,6 +31,7 @@ namespace MusicalProject
             panbrani.Visible = false;
             panspartcanz.Visible = false;
             pancreaspart.Visible = false;
+            playing = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -297,6 +300,99 @@ namespace MusicalProject
             //1 brano, 2 playlist, 3 cartella
             Form2 f2 = new Form2(this, true, 3);
             f2.ShowDialog();
+        }
+
+        private void playbrano_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //seleziona il brano e riproduci con windowsmediaplayer, se si riclicca sul picturebox si ferma la riproduzione
+            if (listView1.SelectedItems.Count > 0)
+            {
+                //cerca il brano selezionato nella lista
+                foreach (IComponente c in lbcp)
+                {
+                    if (c is Brano)
+                    {
+                        Brano b = ((Brano)c);
+                        if (b.Titolo == listView1.SelectedItems[0].Text)
+                        {
+                            labeltitolo.Text = b.Titolo;
+                            labelartisti.Text = b.Artisti;
+                            player.URL = b.Path;
+                            if (!playing)
+                            {
+                                playing = true;
+                                player.controls.play();
+                            }
+                            else
+                            {
+                                playing = false;
+                                player.controls.pause();
+                            }
+                            break;
+                        }
+                    }
+                    else if (c is Cartella)
+                    {
+                        Cartella cr = ((Cartella)c);
+                        foreach (Playlist p in cr.Playlists)
+                        {
+                            foreach (Brano b in p.Brani)
+                            {
+                                if (b.Titolo == listView1.SelectedItems[0].Text)
+                                {
+                                    labeltitolo.Text = b.Titolo;
+                                    labelartisti.Text = b.Artisti;
+                                    player.URL = b.Path;
+                                    if (!playing)
+                                    {
+                                        playing = true;
+                                        player.controls.play();
+                                    }
+                                    else
+                                    {
+                                        playing = false;
+                                        player.controls.pause();
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else if (c is Playlist)
+                    {
+                        Playlist p = ((Playlist)c);
+                        foreach (Brano b in p.Brani)
+                        {
+                            if (b.Titolo == listView1.SelectedItems[0].Text)
+                            {
+                                labeltitolo.Text = b.Titolo;
+                                labelartisti.Text = b.Artisti;
+                                player.URL = b.Path;
+                                if (!playing)
+                                {
+                                    playing = true;
+                                    player.controls.play();
+                                }
+                                else
+                                {
+                                    playing = false;
+                                    player.controls.pause();
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selezionare un brano da riprodurre");
+            }
         }
     }
 }
