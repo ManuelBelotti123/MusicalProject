@@ -9,7 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PSAMControlLibrary;
-using WMPLib;
+using NAudio;
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 using Newtonsoft.Json;
 using MusicalProject.Properties;
 
@@ -18,12 +20,13 @@ namespace MusicalProject
     public partial class Form1 : Form
     {
         //IncipitViewer viewer;
-        WindowsMediaPlayer player = new WindowsMediaPlayer();
+        //Naudio variables
+        IWavePlayer waveOutDevice;
+        AudioFileReader audioFileReader;
 
         //lista globale brani
         List<IComponente> lbcp = new List<IComponente>();
-        //variabile per la riproduzione del brano
-        bool playing;
+ 
 
         public Form1()
         {
@@ -31,7 +34,6 @@ namespace MusicalProject
             panbrani.Visible = false;
             panspartcanz.Visible = false;
             pancreaspart.Visible = false;
-            playing = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -322,17 +324,7 @@ namespace MusicalProject
                         {
                             labeltitolo.Text = b.Titolo;
                             labelartisti.Text = b.Artisti;
-                            player.URL = b.Path;
-                            if (!playing)
-                            {
-                                playing = true;
-                                player.controls.play();
-                            }
-                            else
-                            {
-                                playing = false;
-                                player.controls.pause();
-                            }
+                            PlayMedia(b.Path);
                             break;
                         }
                     }
@@ -347,17 +339,7 @@ namespace MusicalProject
                                 {
                                     labeltitolo.Text = b.Titolo;
                                     labelartisti.Text = b.Artisti;
-                                    player.URL = b.Path;
-                                    if (!playing)
-                                    {
-                                        playing = true;
-                                        player.controls.play();
-                                    }
-                                    else
-                                    {
-                                        playing = false;
-                                        player.controls.pause();
-                                    }
+                                    PlayMedia(b.Path);
                                     break;
                                 }
                             }
@@ -372,17 +354,7 @@ namespace MusicalProject
                             {
                                 labeltitolo.Text = b.Titolo;
                                 labelartisti.Text = b.Artisti;
-                                player.URL = b.Path;
-                                if (!playing)
-                                {
-                                    playing = true;
-                                    player.controls.play();
-                                }
-                                else
-                                {
-                                    playing = false;
-                                    player.controls.pause();
-                                }
+                                PlayMedia(b.Path);
                                 break;
                             }
                         }
@@ -392,6 +364,33 @@ namespace MusicalProject
             else
             {
                 MessageBox.Show("Selezionare un brano da riprodurre");
+            }
+        }
+
+        //metodi di servizio
+        public void PlayMedia(string path)
+        {
+            // se il file audio è nuovo rispetto a quello presente in Naudio
+            if (audioFileReader == null || audioFileReader.FileName != path)
+            {
+                //riproduzione brano path con Naudio
+                waveOutDevice = new WaveOut();
+                audioFileReader = new AudioFileReader(path);
+                waveOutDevice.Init(audioFileReader);
+                waveOutDevice.Play();
+
+            }
+            else
+            {
+                // Se il file audio è lo stesso, mette in pausa o riprende la riproduzione in Naudio
+                if (waveOutDevice.PlaybackState == PlaybackState.Playing)
+                {
+                    waveOutDevice.Pause();
+                }
+                else if (waveOutDevice.PlaybackState == PlaybackState.Paused)
+                {
+                    waveOutDevice.Play();
+                }
             }
         }
     }
