@@ -200,14 +200,75 @@ namespace MusicalProject
 
         private void modbrano_Click(object sender, EventArgs e)
         {
-            //modifica brano selezionato
+            //modifica brano selezionato dalla listView chiamando form2
             if (listView1.SelectedItems.Count > 0)
             {
-                //apri form 2 per modificare i dati del Brano
-                //string json di lbcp
-                string json = JsonConvert.SerializeObject(lbcp);
-                Form2 f2 = new Form2(this, false, 1);
-                f2.ShowDialog();
+                //cerca il brano selezionato nella lista
+                foreach (IComponente c in lbcp)
+                {
+                    if (c is Brano)
+                    {
+                        Brano b = ((Brano)c);
+                        if (b.Titolo == listView1.SelectedItems[0].Text)
+                        {
+                            //apri form 2 per inserire i dati del Brano
+                            Form2 f2 = new Form2(this, false, 1);
+                            f2.ShowDialog();
+                            break;
+                        }
+                    }
+                    else if (c is Cartella)
+                    {
+                        Cartella cr = ((Cartella)c);
+                        foreach (Playlist p in cr.Playlists)
+                        {
+                            if (p.Titolo == listView1.SelectedItems[0].Text)
+                            {
+                                //apri form 2 per inserire i dati della Playlist
+                                Form2 f2 = new Form2(this, false, 2);
+                                f2.ShowDialog();
+                                break;
+                            }
+                            else
+                            {
+                                foreach (Brano b in p.Brani)
+                                {
+                                    if (b.Titolo == listView1.SelectedItems[0].Text)
+                                    {
+                                        //apri form 2 per inserire i dati del Brano
+                                        Form2 f2 = new Form2(this, false, 1);
+                                        f2.ShowDialog();
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (c is Playlist)
+                    {
+                        Playlist p = ((Playlist)c);
+                        if (p.Titolo == listView1.SelectedItems[0].Text)
+                        {
+                            //apri form 2 per inserire i dati della Playlist
+                            Form2 f2 = new Form2(this, false, 2);
+                            f2.ShowDialog();
+                            break;
+                        }
+                        else
+                        {
+                            foreach (Brano b in p.Brani)
+                            {
+                                if (b.Titolo == listView1.SelectedItems[0].Text)
+                                {
+                                    //apri form 2 per inserire i dati del Brano
+                                    Form2 f2 = new Form2(this, false, 1);
+                                    f2.ShowDialog();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             else
             {

@@ -207,34 +207,150 @@ namespace MusicalProject
 
         private void modificabrano_Click(object sender, EventArgs e)
         {
-            //modifica il brano selezionato dalla lista (errore index)
-            //selectedItems[0].Index non funziona
-            //modifica il brano selezionato dalla lista
-            IComponente br = lbcp[form1.listView1.SelectedItems[0].Index];
-            Brano b = (Brano)br;
-            b.Titolo = titolotext.Text;
-            b.Descrizione = desctext.Text;
-            b.Artisti = artistitext.Text;
-            b.Genere = generetext.Text;
-            b.Datapubblicazione = dateTimePicker1.Value;
-            b.Durata = int.Parse(duratatext.Text);
-            b.Path = openFileDialog1.FileName;
-
-            //serializza la lista in json
-            string json = JsonConvert.SerializeObject(lbcp);
-            //scrivi il json nel file
-            System.IO.File.WriteAllText("brani.json", json);
-
-            //modifica il brano nella listView
-            form1.listView1.Items[form1.listView1.SelectedItems[0].Index].Text = b.Titolo;
-            form1.listView1.Items[form1.listView1.SelectedItems[0].Index].SubItems[1].Text = b.Descrizione;
-            form1.listView1.Items[form1.listView1.SelectedItems[0].Index].SubItems[2].Text = b.Artisti;
-            form1.listView1.Items[form1.listView1.SelectedItems[0].Index].SubItems[3].Text = b.Genere;
-            form1.listView1.Items[form1.listView1.SelectedItems[0].Index].SubItems[4].Text = b.Datapubblicazione.ToString();
-            form1.listView1.Items[form1.listView1.SelectedItems[0].Index].SubItems[5].Text = b.Durata.ToString();
-
-            //chiudi il form
-            this.Close();
+            //modifica il brano selezionato dalla listview su form1
+            if (typeaggmod == 1)
+            {
+                //se tutti i campi sono compilati, allora modifica il brano selezionato nella listview
+                if (titolotext.Text != "" && desctext.Text != "" && artistitext.Text != "" && generetext.Text != "" && duratatext.Text != "" && openFileDialog1.FileName.EndsWith(".mp3"))
+                {
+                    //crea un nuovo brano
+                    Brano b = new Brano(titolotext.Text, desctext.Text, artistitext.Text, generetext.Text, dateTimePicker1.Value, int.Parse(duratatext.Text), openFileDialog1.FileName, new Spartito());
+                    //cerca il brano che è stato selezionato nella listview
+                    foreach (IComponente c in lbcp)
+                    {
+                        if (c is Brano)
+                        {
+                            Brano br = ((Brano)c);
+                            if (br.Titolo == form1.listView1.SelectedItems[0].Text)
+                            {
+                                //modifica il brano
+                                br.Titolo = b.Titolo;
+                                br.Descrizione = b.Descrizione;
+                                br.Artisti = b.Artisti;
+                                br.Genere = b.Genere;
+                                br.Datapubblicazione = b.Datapubblicazione;
+                                br.Durata = b.Durata;
+                                br.Path = b.Path;
+                            }
+                        }
+                        else if (c is Playlist)
+                        {
+                            //cerca il brano
+                            Playlist p = ((Playlist)c);
+                            foreach (Brano br in p.Brani)
+                            {
+                                if (br.Titolo == form1.listView1.SelectedItems[0].Text)
+                                {
+                                    //modifica il brano
+                                    br.Titolo = b.Titolo;
+                                    br.Descrizione = b.Descrizione;
+                                    br.Artisti = b.Artisti;
+                                    br.Genere = b.Genere;
+                                    br.Datapubblicazione = b.Datapubblicazione;
+                                    br.Durata = b.Durata;
+                                    br.Path = b.Path;
+                                }
+                            }
+                        }
+                        else if (c is Cartella)
+                        {
+                            //cerca il brano
+                            Cartella cr = ((Cartella)c);
+                            foreach (Playlist p in cr.Playlists)
+                            {
+                                foreach (Brano br in p.Brani)
+                                {
+                                    if (br.Titolo == form1.listView1.SelectedItems[0].Text)
+                                    {
+                                        //modifica il brano
+                                        br.Titolo = b.Titolo;
+                                        br.Descrizione = b.Descrizione;
+                                        br.Artisti = b.Artisti;
+                                        br.Genere = b.Genere;
+                                        br.Datapubblicazione = b.Datapubblicazione;
+                                        br.Durata = b.Durata;
+                                        br.Path = b.Path;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //serializza la lista in json
+                    string json = JsonConvert.SerializeObject(lbcp);
+                    //scrivi il json nel file
+                    System.IO.File.WriteAllText("brani.json", json);
+                    //chiudi il form
+                    this.Close();
+                }
+                else 
+                { 
+                    MessageBox.Show("Compilare tutti i campi");
+                }
+            }
+            else if (typeaggmod == 2)
+            {
+                //se tutti i campi sono compilati, allora modifica la playlist selezionata
+                if (titolotext.Text != "" && desctext.Text != "")
+                {
+                    //crea una nuova playlist
+                    Playlist p = new Playlist(titolotext.Text, desctext.Text);
+                    //modifica la playlist selezionata
+                    foreach (IComponente c in lbcp)
+                    {
+                        if (c is Playlist)
+                        {
+                            Playlist pl = ((Playlist)c);
+                            if (pl.Titolo == form1.treeView1.SelectedNode.Text)
+                            {
+                                pl.Titolo = p.Titolo;
+                                pl.Descrizione = p.Descrizione;
+                            }
+                        }
+                    }
+                    //serializza la lista in json
+                    string json = JsonConvert.SerializeObject(lbcp);
+                    //scrivi il json nel file
+                    System.IO.File.WriteAllText("brani.json", json);
+                    //chiudi il form
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Compilare tutti i campi");
+                }
+            }
+            else if (typeaggmod == 3)
+            {
+                //se tutti i campi sono compilati, allora modifica la cartella selezionata
+                if (titolotext.Text != "" && desctext.Text != "")
+                {
+                    //crea una nuova cartella
+                    Cartella cr = new Cartella(titolotext.Text, desctext.Text);
+                    //modifica la cartella selezionata
+                    foreach (IComponente c in lbcp)
+                    {
+                        if (c is Cartella)
+                        {
+                            Cartella ca = ((Cartella)c);
+                            if (ca.Titolo == form1.treeView1.SelectedNode.Text)
+                            {
+                                ca.Titolo = cr.Titolo;
+                                ca.Descrizione = cr.Descrizione;
+                            }
+                        }
+                    }
+                    //serializza la lista in json
+                    string json = JsonConvert.SerializeObject(lbcp);
+                    //scrivi il json nel file
+                    System.IO.File.WriteAllText("brani.json", json);
+                    //chiudi il form
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Compilare tutti i campi");
+                }
+            }
         }
     }
 }
