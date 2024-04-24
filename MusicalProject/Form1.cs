@@ -24,6 +24,9 @@ namespace MusicalProject
         IWavePlayer waveOutDevice;
         AudioFileReader audioFileReader;
 
+        //spartito crea
+        IncipitViewer viewer;
+
         //lista globale brani
         List<IComponente> lbcp = new List<IComponente>();
  
@@ -453,6 +456,35 @@ namespace MusicalProject
                     waveOutDevice.Play();
                 }
             }
+        }
+
+        private void creaspart_Click(object sender, EventArgs e)
+        {
+            //visibilità pannello creazione spartito
+            pancreaspart.Visible = true;
+            panspartcanz.Visible = false;
+            panbrani.Visible = false;
+
+            viewer = new IncipitViewer();
+
+
+            Clef c = new Clef(ClefType.GClef, 2);
+            viewer.AddMusicalSymbol(c);
+
+            Note n = new Note("G", 0, 4, MusicalSymbolDuration.Quarter, NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
+            viewer.AddMusicalSymbol(n);
+
+            Note n1 = new Note("B", 0, 4, MusicalSymbolDuration.Sixteenth, NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
+            viewer.AddMusicalSymbol(n1);
+
+            Rest r = new Rest(MusicalSymbolDuration.Quarter);
+            viewer.AddMusicalSymbol(r);
+
+            //aggiungi viewer a tabPage1
+
+            tabPage1.Controls.Add(viewer);
+
+
         }
     }
 }

@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panspartcanz = new System.Windows.Forms.Panel();
-            this.pancreaspart = new System.Windows.Forms.Panel();
             this.creaspart = new System.Windows.Forms.Button();
             this.spartcanz = new System.Windows.Forms.Button();
             this.brani = new System.Windows.Forms.Button();
@@ -42,7 +41,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelartisti = new System.Windows.Forms.Label();
             this.labeltitolo = new System.Windows.Forms.Label();
+            this.pancreaspart = new System.Windows.Forms.Panel();
             this.panbrani = new System.Windows.Forms.Panel();
+            this.playbrano = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.label4 = new System.Windows.Forms.Label();
             this.testocerca = new System.Windows.Forms.TextBox();
@@ -59,16 +61,18 @@
             this.creacartella = new System.Windows.Forms.Button();
             this.creaplaylist = new System.Windows.Forms.Button();
             this.aggbrano = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.playbrano = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panspartcanz.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pancreaspart.SuspendLayout();
             this.panbrani.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -107,18 +111,10 @@
             // 
             // panspartcanz
             // 
-            this.panspartcanz.Controls.Add(this.pancreaspart);
             this.panspartcanz.Location = new System.Drawing.Point(18, 182);
             this.panspartcanz.Name = "panspartcanz";
             this.panspartcanz.Size = new System.Drawing.Size(242, 155);
             this.panspartcanz.TabIndex = 0;
-            // 
-            // pancreaspart
-            // 
-            this.pancreaspart.Location = new System.Drawing.Point(33, 34);
-            this.pancreaspart.Name = "pancreaspart";
-            this.pancreaspart.Size = new System.Drawing.Size(200, 100);
-            this.pancreaspart.TabIndex = 0;
             // 
             // creaspart
             // 
@@ -128,6 +124,7 @@
             this.creaspart.TabIndex = 2;
             this.creaspart.Text = "CREA SPARTITO";
             this.creaspart.UseVisualStyleBackColor = true;
+            this.creaspart.Click += new System.EventHandler(this.creaspart_Click);
             // 
             // spartcanz
             // 
@@ -210,8 +207,18 @@
             this.labeltitolo.TabIndex = 10;
             this.labeltitolo.Text = "Titolo Canzone";
             // 
+            // pancreaspart
+            // 
+            this.pancreaspart.Controls.Add(this.tabControl1);
+            this.pancreaspart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pancreaspart.Location = new System.Drawing.Point(0, 0);
+            this.pancreaspart.Name = "pancreaspart";
+            this.pancreaspart.Size = new System.Drawing.Size(768, 583);
+            this.pancreaspart.TabIndex = 0;
+            // 
             // panbrani
             // 
+            this.panbrani.Controls.Add(this.pancreaspart);
             this.panbrani.Controls.Add(this.playbrano);
             this.panbrani.Controls.Add(this.label5);
             this.panbrani.Controls.Add(this.treeView1);
@@ -230,6 +237,25 @@
             this.panbrani.Size = new System.Drawing.Size(768, 583);
             this.panbrani.TabIndex = 3;
             this.panbrani.Paint += new System.Windows.Forms.PaintEventHandler(this.panbrani_Paint);
+            // 
+            // playbrano
+            // 
+            this.playbrano.Location = new System.Drawing.Point(350, 505);
+            this.playbrano.Name = "playbrano";
+            this.playbrano.Size = new System.Drawing.Size(146, 35);
+            this.playbrano.TabIndex = 12;
+            this.playbrano.Text = "Play Brano";
+            this.playbrano.UseVisualStyleBackColor = true;
+            this.playbrano.Click += new System.EventHandler(this.playbrano_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(42, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(174, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Cartelle - Playlist - Brani";
             // 
             // treeView1
             // 
@@ -361,24 +387,35 @@
             this.aggbrano.UseVisualStyleBackColor = true;
             this.aggbrano.Click += new System.EventHandler(this.aggbrano_Click);
             // 
-            // label5
+            // tabControl1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(42, 78);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(174, 20);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Cartelle - Playlist - Brani";
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(254, 237);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(200, 100);
+            this.tabControl1.TabIndex = 0;
             // 
-            // playbrano
+            // tabPage1
             // 
-            this.playbrano.Location = new System.Drawing.Point(350, 505);
-            this.playbrano.Name = "playbrano";
-            this.playbrano.Size = new System.Drawing.Size(146, 35);
-            this.playbrano.TabIndex = 12;
-            this.playbrano.Text = "Play Brano";
-            this.playbrano.UseVisualStyleBackColor = true;
-            this.playbrano.Click += new System.EventHandler(this.playbrano_Click);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(192, 67);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 67);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -395,14 +432,15 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panspartcanz.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pancreaspart.ResumeLayout(false);
             this.panbrani.ResumeLayout(false);
             this.panbrani.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -442,6 +480,9 @@
         public System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button playbrano;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 
