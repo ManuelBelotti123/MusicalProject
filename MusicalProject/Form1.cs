@@ -466,6 +466,7 @@ namespace MusicalProject
             panbrani.Visible = true;
 
             viewer = new IncipitViewer();
+            viewer.Dock = DockStyle.Fill;
 
             //aggiungi viewer a tabPage1
             tabPage1.Controls.Add(viewer);
@@ -475,6 +476,12 @@ namespace MusicalProject
         {
             switch (comboBox1.Text)
             {
+                case "Barline":
+                    //aggiungi una battuta al viewer
+                    viewer.AddMusicalSymbol(new Barline());
+                    //aggiorna il viewer
+                    viewer.Invalidate();
+                    break;
                 case "clef":
                     Clef c;
                     switch (valnota.Text)
@@ -509,93 +516,13 @@ namespace MusicalProject
                         bemolle = false;
                     }
                     Key ks;
-                    switch (int.Parse(valnota.Text))
+                    if (bemolle)
                     {
-                        case 1:
-                            if (bemolle)
-                            {
-                                ks = new Key(-1);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            else
-                            {
-                                ks = new Key(1);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            viewer.AddMusicalSymbol(ks);
-                            break;
-                        case 2:
-                            if (bemolle)
-                            {
-                                ks = new Key(-2);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            else
-                            {
-                                ks = new Key(2);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            viewer.AddMusicalSymbol(ks);
-                            break;
-                        case 3:
-                            if (bemolle)
-                            {
-                                ks = new Key(-3);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            else
-                            {
-                                ks = new Key(3);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            viewer.AddMusicalSymbol(ks);
-                            break;
-                        case 4:
-                            ks = new Key(4);
-                            viewer.AddMusicalSymbol(ks);
-                            break;
-                        case 5:
-                            if (bemolle)
-                            {
-                                ks = new Key(-5);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            else
-                            {
-                                ks = new Key(5);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            viewer.AddMusicalSymbol(ks);
-                            break;
-                        case 6:
-                            if (bemolle)
-                            {
-                                ks = new Key(-6);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            else
-                            {
-                                ks = new Key(6);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            viewer.AddMusicalSymbol(ks);
-                            break;
-                        case 7:
-                            if (bemolle)
-                            {
-                                ks = new Key(-7);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            else
-                            {
-                                ks = new Key(7);
-                                viewer.AddMusicalSymbol(ks);
-                            }
-                            viewer.AddMusicalSymbol(ks);
-                            break;
-                        default:
-                            MessageBox.Show("Inserire un valore tra 1 e 7");
-                            break;
+                        ks = new Key(-int.Parse(valnota.Text));
+                    }
+                    else
+                    {
+                        ks = new Key(int.Parse(valnota.Text));
                     }
                     //aggiorna il viewer
                     viewer.Invalidate();
@@ -644,14 +571,90 @@ namespace MusicalProject
                     viewer.Invalidate();
                     break;
                 case "note":
-                    switch (valnota.Text)
+                    if (valnota.Text != "")
                     {
-                        case "C":
-                            Note n = new Note("C", 1, 4, MusicalSymbolDuration.Quarter, NoteStemDirection.Down, NoteTieType.Start, new List<NoteBeamType>() { NoteBeamType.Single });
-                            viewer.AddMusicalSymbol(n);
-                            break;
-                        default:
-                            break;
+                        //se combobox bemolle diesis è bemolle = -1, altrimenti = 1, se è vuoto = 0
+                        int alterazione;
+                        if (diebem.Text == "bemolle")
+                        {
+                            alterazione = -1;
+                        }
+                        else if (diebem.Text == "diesis")
+                        {
+                            alterazione = 1;
+                        }
+                        else
+                        {
+                            alterazione = 0;
+                        }
+                        //durata nota in base al combobox durata
+                        MusicalSymbolDuration durata;
+                        switch (comboboxdirection.Text)
+                        {
+                            case "Whole":
+                                durata = MusicalSymbolDuration.Whole;
+                                break;
+                            case "Half":
+                                durata = MusicalSymbolDuration.Half;
+                                break;
+                            case "Quarter":
+                                durata = MusicalSymbolDuration.Quarter;
+                                break;
+                            case "Eighth":
+                                durata = MusicalSymbolDuration.Eighth;
+                                break;
+                            case "Sixteenth":
+                                durata = MusicalSymbolDuration.Sixteenth;
+                                break;
+                            case "Thirty-second":
+                                durata = MusicalSymbolDuration.d32nd;
+                                break;
+                            case "Sixty-fourth":
+                                durata = MusicalSymbolDuration.d64th;
+                                break;
+                            case "Hundred-twenty-eighth":
+                                durata = MusicalSymbolDuration.d128th;
+                                break;
+                            default:
+                                durata = MusicalSymbolDuration.Quarter;
+                                break;
+                        }
+                        //notestemdirection in base al combobox stem
+                        NoteStemDirection stem;
+                        if (comboboxdirection.Text == "up")
+                        {
+                            stem = NoteStemDirection.Up;
+                        }
+                        else
+                        {
+                            stem = NoteStemDirection.Down;
+                        }
+                        //note tie type in base al combobox tie
+                        NoteTieType tie;
+                        switch (comboboxtie.Text)
+                        {
+                            case "None":
+                                tie = NoteTieType.None;
+                                break;
+                            case "Start":
+                                tie = NoteTieType.Start;
+                                break;
+                            case "Stop":
+                                tie = NoteTieType.Stop;
+                                break;
+                            case "StopAndStartAnother":
+                                tie = NoteTieType.StopAndStartAnother;
+                                break;
+                            default:
+                                tie = NoteTieType.None;
+                                break;
+                        }
+                        Note n = new Note(valnota.Text, alterazione, int.Parse(ottavanota.Text), durata, stem, tie, new List<NoteBeamType>() { NoteBeamType.Single });
+                        viewer.AddMusicalSymbol(n);
+                    }
+                    else 
+                    { 
+                        MessageBox.Show("Inserire un valore per la nota");
                     }
                     //aggiorna il viewer
                     viewer.Invalidate();
@@ -667,6 +670,11 @@ namespace MusicalProject
             viewer.RemoveLastMusicalSymbol();
             //aggiorna il viewer
             viewer.Invalidate();
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

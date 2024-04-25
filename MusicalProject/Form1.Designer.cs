@@ -42,6 +42,21 @@
             this.labelartisti = new System.Windows.Forms.Label();
             this.labeltitolo = new System.Windows.Forms.Label();
             this.pancreaspart = new System.Windows.Forms.Panel();
+            this.comboboxdurata = new System.Windows.Forms.ComboBox();
+            this.comboboxdirection = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Ottava = new System.Windows.Forms.Label();
+            this.ottavanota = new System.Windows.Forms.TextBox();
+            this.diebem = new System.Windows.Forms.ComboBox();
+            this.remultimaagg = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.valnota = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.addmusicalsymb = new System.Windows.Forms.Button();
+            this.tabControlspart = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panbrani = new System.Windows.Forms.Panel();
             this.playbrano = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,21 +76,8 @@
             this.creacartella = new System.Windows.Forms.Button();
             this.creaplaylist = new System.Windows.Forms.Button();
             this.aggbrano = new System.Windows.Forms.Button();
-            this.tabControlspart = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.addmusicalsymb = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.valnota = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.remultimaagg = new System.Windows.Forms.Button();
-            this.diebem = new System.Windows.Forms.ComboBox();
-            this.ottavanota = new System.Windows.Forms.TextBox();
-            this.Ottava = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboboxtie = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -83,8 +85,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pancreaspart.SuspendLayout();
-            this.panbrani.SuspendLayout();
             this.tabControlspart.SuspendLayout();
+            this.panbrani.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -221,8 +223,10 @@
             // 
             // pancreaspart
             // 
-            this.pancreaspart.Controls.Add(this.comboBox3);
-            this.pancreaspart.Controls.Add(this.comboBox2);
+            this.pancreaspart.Controls.Add(this.label7);
+            this.pancreaspart.Controls.Add(this.comboboxtie);
+            this.pancreaspart.Controls.Add(this.comboboxdurata);
+            this.pancreaspart.Controls.Add(this.comboboxdirection);
             this.pancreaspart.Controls.Add(this.label6);
             this.pancreaspart.Controls.Add(this.label3);
             this.pancreaspart.Controls.Add(this.Ottava);
@@ -239,6 +243,176 @@
             this.pancreaspart.Name = "pancreaspart";
             this.pancreaspart.Size = new System.Drawing.Size(768, 583);
             this.pancreaspart.TabIndex = 0;
+            // 
+            // comboboxdurata
+            // 
+            this.comboboxdurata.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxdurata.FormattingEnabled = true;
+            this.comboboxdurata.Items.AddRange(new object[] {
+            "Whole",
+            "Half",
+            "Quarter",
+            "Eighth",
+            "Sixteenth",
+            "Thirty-second",
+            "Sixty-fourth",
+            "Hundred-twenty-eighth"});
+            this.comboboxdurata.Location = new System.Drawing.Point(380, 42);
+            this.comboboxdurata.Name = "comboboxdurata";
+            this.comboboxdurata.Size = new System.Drawing.Size(44, 28);
+            this.comboboxdurata.TabIndex = 16;
+            this.comboboxdurata.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // comboboxdirection
+            // 
+            this.comboboxdirection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxdirection.FormattingEnabled = true;
+            this.comboboxdirection.Items.AddRange(new object[] {
+            "up",
+            "down"});
+            this.comboboxdirection.Location = new System.Drawing.Point(475, 41);
+            this.comboboxdirection.Name = "comboboxdirection";
+            this.comboboxdirection.Size = new System.Drawing.Size(44, 28);
+            this.comboboxdirection.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(442, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Direzione nota";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(373, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Durata";
+            // 
+            // Ottava
+            // 
+            this.Ottava.AutoSize = true;
+            this.Ottava.Location = new System.Drawing.Point(294, 18);
+            this.Ottava.Name = "Ottava";
+            this.Ottava.Size = new System.Drawing.Size(56, 20);
+            this.Ottava.TabIndex = 10;
+            this.Ottava.Text = "Ottava";
+            // 
+            // ottavanota
+            // 
+            this.ottavanota.Location = new System.Drawing.Point(300, 41);
+            this.ottavanota.Name = "ottavanota";
+            this.ottavanota.Size = new System.Drawing.Size(44, 26);
+            this.ottavanota.TabIndex = 9;
+            // 
+            // diebem
+            // 
+            this.diebem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.diebem.FormattingEnabled = true;
+            this.diebem.Items.AddRange(new object[] {
+            "bemolle",
+            "diesis",
+            ""});
+            this.diebem.Location = new System.Drawing.Point(208, 75);
+            this.diebem.Name = "diebem";
+            this.diebem.Size = new System.Drawing.Size(44, 28);
+            this.diebem.TabIndex = 8;
+            // 
+            // remultimaagg
+            // 
+            this.remultimaagg.Location = new System.Drawing.Point(50, 105);
+            this.remultimaagg.Name = "remultimaagg";
+            this.remultimaagg.Size = new System.Drawing.Size(117, 33);
+            this.remultimaagg.TabIndex = 5;
+            this.remultimaagg.Text = "Rimuovi";
+            this.remultimaagg.UseVisualStyleBackColor = true;
+            this.remultimaagg.Click += new System.EventHandler(this.remultimaagg_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(186, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Valore Nota";
+            // 
+            // valnota
+            // 
+            this.valnota.Location = new System.Drawing.Point(208, 40);
+            this.valnota.Name = "valnota";
+            this.valnota.Size = new System.Drawing.Size(44, 26);
+            this.valnota.TabIndex = 3;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "clef",
+            "key signature",
+            "time signature",
+            "upbeat",
+            "accidental",
+            "note",
+            "rest",
+            "dot",
+            "articulation",
+            "dynamics",
+            "triplets",
+            "volta brackets",
+            "ties",
+            "slurs",
+            "Barline",
+            ""});
+            this.comboBox1.Location = new System.Drawing.Point(46, 26);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.TabIndex = 2;
+            // 
+            // addmusicalsymb
+            // 
+            this.addmusicalsymb.Location = new System.Drawing.Point(46, 67);
+            this.addmusicalsymb.Name = "addmusicalsymb";
+            this.addmusicalsymb.Size = new System.Drawing.Size(121, 33);
+            this.addmusicalsymb.TabIndex = 1;
+            this.addmusicalsymb.Text = "Add";
+            this.addmusicalsymb.UseVisualStyleBackColor = true;
+            this.addmusicalsymb.Click += new System.EventHandler(this.addmusicalsymb_Click);
+            // 
+            // tabControlspart
+            // 
+            this.tabControlspart.Controls.Add(this.tabPage1);
+            this.tabControlspart.Controls.Add(this.tabPage2);
+            this.tabControlspart.Location = new System.Drawing.Point(46, 157);
+            this.tabControlspart.Name = "tabControlspart";
+            this.tabControlspart.SelectedIndex = 0;
+            this.tabControlspart.Size = new System.Drawing.Size(681, 383);
+            this.tabControlspart.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(673, 350);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(673, 350);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panbrani
             // 
@@ -411,170 +585,28 @@
             this.aggbrano.UseVisualStyleBackColor = true;
             this.aggbrano.Click += new System.EventHandler(this.aggbrano_Click);
             // 
-            // tabControlspart
+            // comboboxtie
             // 
-            this.tabControlspart.Controls.Add(this.tabPage1);
-            this.tabControlspart.Controls.Add(this.tabPage2);
-            this.tabControlspart.Location = new System.Drawing.Point(46, 157);
-            this.tabControlspart.Name = "tabControlspart";
-            this.tabControlspart.SelectedIndex = 0;
-            this.tabControlspart.Size = new System.Drawing.Size(681, 383);
-            this.tabControlspart.TabIndex = 0;
+            this.comboboxtie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxtie.FormattingEnabled = true;
+            this.comboboxtie.Items.AddRange(new object[] {
+            "Start",
+            "Stop",
+            "StopAndStartAnother",
+            "None"});
+            this.comboboxtie.Location = new System.Drawing.Point(573, 42);
+            this.comboboxtie.Name = "comboboxtie";
+            this.comboboxtie.Size = new System.Drawing.Size(44, 28);
+            this.comboboxtie.TabIndex = 17;
             // 
-            // tabPage1
+            // label7
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(673, 350);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 67);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // addmusicalsymb
-            // 
-            this.addmusicalsymb.Location = new System.Drawing.Point(46, 67);
-            this.addmusicalsymb.Name = "addmusicalsymb";
-            this.addmusicalsymb.Size = new System.Drawing.Size(121, 33);
-            this.addmusicalsymb.TabIndex = 1;
-            this.addmusicalsymb.Text = "Add";
-            this.addmusicalsymb.UseVisualStyleBackColor = true;
-            this.addmusicalsymb.Click += new System.EventHandler(this.addmusicalsymb_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "clef",
-            "key signature",
-            "time signature",
-            "upbeat",
-            "accidental",
-            "note",
-            "rest",
-            "dot",
-            "articulation",
-            "dynamics",
-            "triplets",
-            "volta brackets",
-            "ties",
-            "slurs",
-            "",
-            ""});
-            this.comboBox1.Location = new System.Drawing.Point(46, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // valnota
-            // 
-            this.valnota.Location = new System.Drawing.Point(208, 40);
-            this.valnota.Name = "valnota";
-            this.valnota.Size = new System.Drawing.Size(44, 26);
-            this.valnota.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(186, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Valore Nota";
-            // 
-            // remultimaagg
-            // 
-            this.remultimaagg.Location = new System.Drawing.Point(50, 105);
-            this.remultimaagg.Name = "remultimaagg";
-            this.remultimaagg.Size = new System.Drawing.Size(117, 33);
-            this.remultimaagg.TabIndex = 5;
-            this.remultimaagg.Text = "Rimuovi";
-            this.remultimaagg.UseVisualStyleBackColor = true;
-            this.remultimaagg.Click += new System.EventHandler(this.remultimaagg_Click);
-            // 
-            // diebem
-            // 
-            this.diebem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.diebem.FormattingEnabled = true;
-            this.diebem.Items.AddRange(new object[] {
-            "bemolle",
-            "diesis",
-            ""});
-            this.diebem.Location = new System.Drawing.Point(208, 75);
-            this.diebem.Name = "diebem";
-            this.diebem.Size = new System.Drawing.Size(44, 28);
-            this.diebem.TabIndex = 8;
-            // 
-            // ottavanota
-            // 
-            this.ottavanota.Location = new System.Drawing.Point(300, 41);
-            this.ottavanota.Name = "ottavanota";
-            this.ottavanota.Size = new System.Drawing.Size(44, 26);
-            this.ottavanota.TabIndex = 9;
-            // 
-            // Ottava
-            // 
-            this.Ottava.AutoSize = true;
-            this.Ottava.Location = new System.Drawing.Point(294, 18);
-            this.Ottava.Name = "Ottava";
-            this.Ottava.Size = new System.Drawing.Size(56, 20);
-            this.Ottava.TabIndex = 10;
-            this.Ottava.Text = "Ottava";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(373, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 20);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Durata";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(442, 18);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 20);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Direzione nota";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "bemolle",
-            "diesis",
-            ""});
-            this.comboBox2.Location = new System.Drawing.Point(475, 41);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(44, 28);
-            this.comboBox2.TabIndex = 15;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "bemolle",
-            "diesis",
-            ""});
-            this.comboBox3.Location = new System.Drawing.Point(380, 42);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(44, 28);
-            this.comboBox3.TabIndex = 16;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(560, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 20);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Note Tie";
             // 
             // Form1
             // 
@@ -598,9 +630,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pancreaspart.ResumeLayout(false);
             this.pancreaspart.PerformLayout();
+            this.tabControlspart.ResumeLayout(false);
             this.panbrani.ResumeLayout(false);
             this.panbrani.PerformLayout();
-            this.tabControlspart.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -652,9 +684,11 @@
         private System.Windows.Forms.TextBox ottavanota;
         private System.Windows.Forms.Label Ottava;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboboxdurata;
+        private System.Windows.Forms.ComboBox comboboxdirection;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboboxtie;
     }
 }
 
