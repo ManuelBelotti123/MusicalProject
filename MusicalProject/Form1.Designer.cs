@@ -61,9 +61,14 @@
             this.creacartella = new System.Windows.Forms.Button();
             this.creaplaylist = new System.Windows.Forms.Button();
             this.aggbrano = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlspart = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.addmusicalsymb = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.valnota = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.remultimaagg = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -72,7 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pancreaspart.SuspendLayout();
             this.panbrani.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControlspart.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -209,7 +214,12 @@
             // 
             // pancreaspart
             // 
-            this.pancreaspart.Controls.Add(this.tabControl1);
+            this.pancreaspart.Controls.Add(this.remultimaagg);
+            this.pancreaspart.Controls.Add(this.label2);
+            this.pancreaspart.Controls.Add(this.valnota);
+            this.pancreaspart.Controls.Add(this.comboBox1);
+            this.pancreaspart.Controls.Add(this.addmusicalsymb);
+            this.pancreaspart.Controls.Add(this.tabControlspart);
             this.pancreaspart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pancreaspart.Location = new System.Drawing.Point(0, 0);
             this.pancreaspart.Name = "pancreaspart";
@@ -387,22 +397,22 @@
             this.aggbrano.UseVisualStyleBackColor = true;
             this.aggbrano.Click += new System.EventHandler(this.aggbrano_Click);
             // 
-            // tabControl1
+            // tabControlspart
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(254, 237);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(200, 100);
-            this.tabControl1.TabIndex = 0;
+            this.tabControlspart.Controls.Add(this.tabPage1);
+            this.tabControlspart.Controls.Add(this.tabPage2);
+            this.tabControlspart.Location = new System.Drawing.Point(46, 157);
+            this.tabControlspart.Name = "tabControlspart";
+            this.tabControlspart.SelectedIndex = 0;
+            this.tabControlspart.Size = new System.Drawing.Size(681, 383);
+            this.tabControlspart.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(192, 67);
+            this.tabPage1.Size = new System.Drawing.Size(673, 350);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -416,6 +426,68 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // addmusicalsymb
+            // 
+            this.addmusicalsymb.Location = new System.Drawing.Point(46, 80);
+            this.addmusicalsymb.Name = "addmusicalsymb";
+            this.addmusicalsymb.Size = new System.Drawing.Size(121, 33);
+            this.addmusicalsymb.TabIndex = 1;
+            this.addmusicalsymb.Text = "Add";
+            this.addmusicalsymb.UseVisualStyleBackColor = true;
+            this.addmusicalsymb.Click += new System.EventHandler(this.addmusicalsymb_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "clef",
+            "key signature",
+            "time signature",
+            "upbeat",
+            "accidental",
+            "note",
+            "rest",
+            "dot",
+            "articulation",
+            "dynamics",
+            "triplets",
+            "volta brackets",
+            "ties",
+            "slurs",
+            "",
+            ""});
+            this.comboBox1.Location = new System.Drawing.Point(46, 39);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.TabIndex = 2;
+            // 
+            // valnota
+            // 
+            this.valnota.Location = new System.Drawing.Point(208, 40);
+            this.valnota.Name = "valnota";
+            this.valnota.Size = new System.Drawing.Size(44, 26);
+            this.valnota.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(186, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Valore Nota";
+            // 
+            // remultimaagg
+            // 
+            this.remultimaagg.Location = new System.Drawing.Point(190, 80);
+            this.remultimaagg.Name = "remultimaagg";
+            this.remultimaagg.Size = new System.Drawing.Size(89, 33);
+            this.remultimaagg.TabIndex = 5;
+            this.remultimaagg.Text = "Rimuovi";
+            this.remultimaagg.UseVisualStyleBackColor = true;
+            this.remultimaagg.Click += new System.EventHandler(this.remultimaagg_Click);
             // 
             // Form1
             // 
@@ -438,9 +510,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pancreaspart.ResumeLayout(false);
+            this.pancreaspart.PerformLayout();
             this.panbrani.ResumeLayout(false);
             this.panbrani.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlspart.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -480,9 +553,14 @@
         public System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button playbrano;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlspart;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button addmusicalsymb;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox valnota;
+        private System.Windows.Forms.Button remultimaagg;
     }
 }
 

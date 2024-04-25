@@ -463,28 +463,46 @@ namespace MusicalProject
             //visibilità pannello creazione spartito
             pancreaspart.Visible = true;
             panspartcanz.Visible = false;
-            panbrani.Visible = false;
+            panbrani.Visible = true;
 
             viewer = new IncipitViewer();
 
-
-            Clef c = new Clef(ClefType.GClef, 2);
-            viewer.AddMusicalSymbol(c);
-
-            Note n = new Note("G", 0, 4, MusicalSymbolDuration.Quarter, NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
-            viewer.AddMusicalSymbol(n);
-
-            Note n1 = new Note("B", 0, 4, MusicalSymbolDuration.Sixteenth, NoteStemDirection.Up, NoteTieType.None, new List<NoteBeamType>() { NoteBeamType.Single });
-            viewer.AddMusicalSymbol(n1);
-
-            Rest r = new Rest(MusicalSymbolDuration.Quarter);
-            viewer.AddMusicalSymbol(r);
-
             //aggiungi viewer a tabPage1
-
             tabPage1.Controls.Add(viewer);
+        }
 
+        private void addmusicalsymb_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "clef")
+            {
+                Clef c;
+                switch (valnota.Text)
+                {
+                    case "C":
+                        c = new Clef(ClefType.CClef, 4);
+                        viewer.AddMusicalSymbol(c);
+                        break;
+                    case "F":
+                        c = new Clef(ClefType.FClef, 4);
+                        viewer.AddMusicalSymbol(c);
+                        break;
+                    case "G":
+                        c = new Clef(ClefType.GClef, 4);
+                        viewer.AddMusicalSymbol(c);
+                        break;
+                    default:
+                        MessageBox.Show("Inserire una nota tra C, F, G");
+                        break;
+                }
+                //aggiorna il viewer
+                viewer.Invalidate();
+            }
+        }
 
+        private void remultimaagg_Click(object sender, EventArgs e)
+        {
+            //rimuovi ultimo simbolo aggiunto
+            viewer.RemoveLastMusicalSymbol();
         }
     }
 }
