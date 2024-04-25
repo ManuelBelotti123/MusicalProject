@@ -473,29 +473,135 @@ namespace MusicalProject
 
         private void addmusicalsymb_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "clef")
+            switch (comboBox1.Text)
             {
-                Clef c;
-                switch (valnota.Text)
-                {
-                    case "C":
-                        c = new Clef(ClefType.CClef, 4);
-                        viewer.AddMusicalSymbol(c);
-                        break;
-                    case "F":
-                        c = new Clef(ClefType.FClef, 4);
-                        viewer.AddMusicalSymbol(c);
-                        break;
-                    case "G":
-                        c = new Clef(ClefType.GClef, 4);
-                        viewer.AddMusicalSymbol(c);
-                        break;
-                    default:
-                        MessageBox.Show("Inserire una nota tra C, F, G");
-                        break;
-                }
-                //aggiorna il viewer
-                viewer.Invalidate();
+                case "clef":
+                    Clef c;
+                    switch (valnota.Text)
+                    {
+                        case "C":
+                            c = new Clef(ClefType.CClef, 4);
+                            viewer.AddMusicalSymbol(c);
+                            break;
+                        case "F":
+                            c = new Clef(ClefType.FClef, 4);
+                            viewer.AddMusicalSymbol(c);
+                            break;
+                        case "G":
+                            c = new Clef(ClefType.GClef, 4);
+                            viewer.AddMusicalSymbol(c);
+                            break;
+                        default:
+                            MessageBox.Show("Inserire una nota tra C, F, G");
+                            break;
+                    }
+                    //aggiorna il viewer
+                    viewer.Invalidate();
+                    break;
+                case "key signature":
+                    bool bemolle;
+                    if (diebem.Text == "bemolle")
+                    {
+                        bemolle = true;
+                    }
+                    else
+                    {
+                        bemolle = false;
+                    }
+                    Key ks;
+                    switch (int.Parse(valkeysign.Text))
+                    {
+                        case 1:
+                            if (bemolle)
+                            {
+                                ks = new Key(-1);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            else
+                            {
+                                ks = new Key(1);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            viewer.AddMusicalSymbol(ks);
+                            break;
+                        case 2:
+                            if (bemolle)
+                            {
+                                ks = new Key(-2);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            else
+                            {
+                                ks = new Key(2);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            viewer.AddMusicalSymbol(ks);
+                            break;
+                        case 3:
+                            if (bemolle)
+                            {
+                                ks = new Key(-3);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            else
+                            {
+                                ks = new Key(3);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            viewer.AddMusicalSymbol(ks);
+                            break;
+                        case 4:
+                            ks = new Key(4);
+                            viewer.AddMusicalSymbol(ks);
+                            break;
+                        case 5:
+                            if (bemolle)
+                            {
+                                ks = new Key(-5);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            else
+                            {
+                                ks = new Key(5);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            viewer.AddMusicalSymbol(ks);
+                            break;
+                        case 6:
+                            if (bemolle)
+                            {
+                                ks = new Key(-6);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            else
+                            {
+                                ks = new Key(6);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            viewer.AddMusicalSymbol(ks);
+                            break;
+                        case 7:
+                            if (bemolle)
+                            {
+                                ks = new Key(-7);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            else
+                            {
+                                ks = new Key(7);
+                                viewer.AddMusicalSymbol(ks);
+                            }
+                            viewer.AddMusicalSymbol(ks);
+                            break;
+                        default:
+                            MessageBox.Show("Inserire un valore tra 1 e 7");
+                            break;
+                    }
+                    //aggiorna il viewer
+                    viewer.Invalidate();
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -503,6 +609,8 @@ namespace MusicalProject
         {
             //rimuovi ultimo simbolo aggiunto
             viewer.RemoveLastMusicalSymbol();
+            //aggiorna il viewer
+            viewer.Invalidate();
         }
     }
 }

@@ -69,6 +69,9 @@
             this.valnota = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.remultimaagg = new System.Windows.Forms.Button();
+            this.valkeysign = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.diebem = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -214,6 +217,9 @@
             // 
             // pancreaspart
             // 
+            this.pancreaspart.Controls.Add(this.diebem);
+            this.pancreaspart.Controls.Add(this.label3);
+            this.pancreaspart.Controls.Add(this.valkeysign);
             this.pancreaspart.Controls.Add(this.remultimaagg);
             this.pancreaspart.Controls.Add(this.label2);
             this.pancreaspart.Controls.Add(this.valnota);
@@ -429,7 +435,7 @@
             // 
             // addmusicalsymb
             // 
-            this.addmusicalsymb.Location = new System.Drawing.Point(46, 80);
+            this.addmusicalsymb.Location = new System.Drawing.Point(46, 67);
             this.addmusicalsymb.Name = "addmusicalsymb";
             this.addmusicalsymb.Size = new System.Drawing.Size(121, 33);
             this.addmusicalsymb.TabIndex = 1;
@@ -458,7 +464,7 @@
             "slurs",
             "",
             ""});
-            this.comboBox1.Location = new System.Drawing.Point(46, 39);
+            this.comboBox1.Location = new System.Drawing.Point(46, 26);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 28);
             this.comboBox1.TabIndex = 2;
@@ -481,13 +487,42 @@
             // 
             // remultimaagg
             // 
-            this.remultimaagg.Location = new System.Drawing.Point(190, 80);
+            this.remultimaagg.Location = new System.Drawing.Point(50, 105);
             this.remultimaagg.Name = "remultimaagg";
-            this.remultimaagg.Size = new System.Drawing.Size(89, 33);
+            this.remultimaagg.Size = new System.Drawing.Size(117, 33);
             this.remultimaagg.TabIndex = 5;
             this.remultimaagg.Text = "Rimuovi";
             this.remultimaagg.UseVisualStyleBackColor = true;
             this.remultimaagg.Click += new System.EventHandler(this.remultimaagg_Click);
+            // 
+            // valkeysign
+            // 
+            this.valkeysign.Location = new System.Drawing.Point(311, 40);
+            this.valkeysign.Name = "valkeysign";
+            this.valkeysign.Size = new System.Drawing.Size(44, 26);
+            this.valkeysign.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(285, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Val KeySign";
+            // 
+            // diebem
+            // 
+            this.diebem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.diebem.FormattingEnabled = true;
+            this.diebem.Items.AddRange(new object[] {
+            "bemolle",
+            "diesis",
+            ""});
+            this.diebem.Location = new System.Drawing.Point(311, 71);
+            this.diebem.Name = "diebem";
+            this.diebem.Size = new System.Drawing.Size(44, 28);
+            this.diebem.TabIndex = 8;
             // 
             // Form1
             // 
@@ -561,6 +596,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox valnota;
         private System.Windows.Forms.Button remultimaagg;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox valkeysign;
+        private System.Windows.Forms.ComboBox diebem;
     }
 }
 
