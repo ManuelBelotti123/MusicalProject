@@ -643,6 +643,19 @@ namespace MusicalProject
                     //aggiorna il viewer
                     viewer.Invalidate();
                     break;
+                case "note":
+                    switch (valnota.Text)
+                    {
+                        case "C":
+                            Note n = new Note("C", 1, 4, MusicalSymbolDuration.Quarter, NoteStemDirection.Down, NoteTieType.Start, new List<NoteBeamType>() { NoteBeamType.Single });
+                            viewer.AddMusicalSymbol(n);
+                            break;
+                        default:
+                            break;
+                    }
+                    //aggiorna il viewer
+                    viewer.Invalidate();
+                    break;
                 default:
                     break;
             }

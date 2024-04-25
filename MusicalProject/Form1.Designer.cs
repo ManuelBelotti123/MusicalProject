@@ -70,6 +70,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.remultimaagg = new System.Windows.Forms.Button();
             this.diebem = new System.Windows.Forms.ComboBox();
+            this.ottavanota = new System.Windows.Forms.TextBox();
+            this.Ottava = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -215,6 +221,12 @@
             // 
             // pancreaspart
             // 
+            this.pancreaspart.Controls.Add(this.comboBox3);
+            this.pancreaspart.Controls.Add(this.comboBox2);
+            this.pancreaspart.Controls.Add(this.label6);
+            this.pancreaspart.Controls.Add(this.label3);
+            this.pancreaspart.Controls.Add(this.Ottava);
+            this.pancreaspart.Controls.Add(this.ottavanota);
             this.pancreaspart.Controls.Add(this.diebem);
             this.pancreaspart.Controls.Add(this.remultimaagg);
             this.pancreaspart.Controls.Add(this.label2);
@@ -504,6 +516,66 @@
             this.diebem.Size = new System.Drawing.Size(44, 28);
             this.diebem.TabIndex = 8;
             // 
+            // ottavanota
+            // 
+            this.ottavanota.Location = new System.Drawing.Point(300, 41);
+            this.ottavanota.Name = "ottavanota";
+            this.ottavanota.Size = new System.Drawing.Size(44, 26);
+            this.ottavanota.TabIndex = 9;
+            // 
+            // Ottava
+            // 
+            this.Ottava.AutoSize = true;
+            this.Ottava.Location = new System.Drawing.Point(294, 18);
+            this.Ottava.Name = "Ottava";
+            this.Ottava.Size = new System.Drawing.Size(56, 20);
+            this.Ottava.TabIndex = 10;
+            this.Ottava.Text = "Ottava";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(373, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Durata";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(442, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Direzione nota";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "bemolle",
+            "diesis",
+            ""});
+            this.comboBox2.Location = new System.Drawing.Point(475, 41);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(44, 28);
+            this.comboBox2.TabIndex = 15;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "bemolle",
+            "diesis",
+            ""});
+            this.comboBox3.Location = new System.Drawing.Point(380, 42);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(44, 28);
+            this.comboBox3.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -577,6 +649,12 @@
         private System.Windows.Forms.TextBox valnota;
         private System.Windows.Forms.Button remultimaagg;
         private System.Windows.Forms.ComboBox diebem;
+        private System.Windows.Forms.TextBox ottavanota;
+        private System.Windows.Forms.Label Ottava;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label6;
     }
 }
 
