@@ -509,7 +509,7 @@ namespace MusicalProject
                         bemolle = false;
                     }
                     Key ks;
-                    switch (int.Parse(valkeysign.Text))
+                    switch (int.Parse(valnota.Text))
                     {
                         case 1:
                             if (bemolle)
@@ -595,6 +595,49 @@ namespace MusicalProject
                             break;
                         default:
                             MessageBox.Show("Inserire un valore tra 1 e 7");
+                            break;
+                    }
+                    //aggiorna il viewer
+                    viewer.Invalidate();
+                    break;
+                case "time signature":
+                    TimeSignature ts;
+                    switch (valnota.Text)
+                    {
+                        case "2/2":
+                            ts = new TimeSignature(TimeSignatureType.Numbers, 2, 2);
+                            viewer.AddMusicalSymbol(ts);
+                            break;
+                        case "2/4":
+                            ts = new TimeSignature(TimeSignatureType.Numbers, 2, 4);
+                            viewer.AddMusicalSymbol(ts);
+                            break;
+                        case "3/4":
+                            ts = new TimeSignature(TimeSignatureType.Numbers, 3, 4);
+                            viewer.AddMusicalSymbol(ts);
+                            break;
+                        case "4/4":
+                            ts = new TimeSignature(TimeSignatureType.Numbers, 4, 4);
+                            viewer.AddMusicalSymbol(ts);
+                            break;
+                        case "3/8":
+                            ts = new TimeSignature(TimeSignatureType.Numbers, 3, 8);
+                            viewer.AddMusicalSymbol(ts);
+                            break;
+                        case "6/8":
+                            ts = new TimeSignature(TimeSignatureType.Numbers, 6, 8);
+                            viewer.AddMusicalSymbol(ts);
+                            break;
+                        case "9/8":
+                            ts = new TimeSignature(TimeSignatureType.Numbers, 9, 8);
+                            viewer.AddMusicalSymbol(ts);
+                            break;
+                        case "12/8":
+                            ts = new TimeSignature(TimeSignatureType.Numbers, 12, 8);
+                            viewer.AddMusicalSymbol(ts);
+                            break;
+                        default:
+                            MessageBox.Show("Inserire un valore tra 2/2, 2/4, 3/4, 4/4, 3/8, 6/8, 9/8, 12/8");
                             break;
                     }
                     //aggiorna il viewer

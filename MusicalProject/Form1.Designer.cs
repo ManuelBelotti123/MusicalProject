@@ -69,8 +69,6 @@
             this.valnota = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.remultimaagg = new System.Windows.Forms.Button();
-            this.valkeysign = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.diebem = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -218,8 +216,6 @@
             // pancreaspart
             // 
             this.pancreaspart.Controls.Add(this.diebem);
-            this.pancreaspart.Controls.Add(this.label3);
-            this.pancreaspart.Controls.Add(this.valkeysign);
             this.pancreaspart.Controls.Add(this.remultimaagg);
             this.pancreaspart.Controls.Add(this.label2);
             this.pancreaspart.Controls.Add(this.valnota);
@@ -495,22 +491,6 @@
             this.remultimaagg.UseVisualStyleBackColor = true;
             this.remultimaagg.Click += new System.EventHandler(this.remultimaagg_Click);
             // 
-            // valkeysign
-            // 
-            this.valkeysign.Location = new System.Drawing.Point(311, 40);
-            this.valkeysign.Name = "valkeysign";
-            this.valkeysign.Size = new System.Drawing.Size(44, 26);
-            this.valkeysign.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(285, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Val KeySign";
-            // 
             // diebem
             // 
             this.diebem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -519,7 +499,7 @@
             "bemolle",
             "diesis",
             ""});
-            this.diebem.Location = new System.Drawing.Point(311, 71);
+            this.diebem.Location = new System.Drawing.Point(208, 75);
             this.diebem.Name = "diebem";
             this.diebem.Size = new System.Drawing.Size(44, 28);
             this.diebem.TabIndex = 8;
@@ -596,8 +576,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox valnota;
         private System.Windows.Forms.Button remultimaagg;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox valkeysign;
         private System.Windows.Forms.ComboBox diebem;
     }
 }
