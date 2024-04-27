@@ -659,6 +659,45 @@ namespace MusicalProject
                     //aggiorna il viewer
                     viewer.Invalidate();
                     break;
+                case "rest":
+                    //durata nota in base al combobox durata
+                    MusicalSymbolDuration durata1;
+                    switch (comboboxdurata.Text)
+                    {
+                        case "Whole":
+                            durata1 = MusicalSymbolDuration.Whole;
+                            break;
+                        case "Half":
+                            durata1 = MusicalSymbolDuration.Half;
+                            break;
+                        case "Quarter":
+                            durata1 = MusicalSymbolDuration.Quarter;
+                            break;
+                        case "Eighth":
+                            durata1 = MusicalSymbolDuration.Eighth;
+                            break;
+                        case "Sixteenth":
+                            durata1 = MusicalSymbolDuration.Sixteenth;
+                            break;
+                        case "Thirty-second":
+                            durata1 = MusicalSymbolDuration.d32nd;
+                            break;
+                        case "Sixty-fourth":
+                            durata1 = MusicalSymbolDuration.d64th;
+                            break;
+                        case "Hundred-twenty-eighth":
+                            durata1 = MusicalSymbolDuration.d128th;
+                            break;
+                        default:
+                            durata1 = MusicalSymbolDuration.Quarter;
+                            break;
+                    }
+                    Rest r = new Rest(durata1);
+                    viewer.AddMusicalSymbol(r);
+                    //aggiorna il viewer
+                    viewer.Invalidate();
+                    break;
+
                 default:
                     break;
             }
