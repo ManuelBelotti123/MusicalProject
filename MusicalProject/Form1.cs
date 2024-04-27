@@ -650,6 +650,10 @@ namespace MusicalProject
                                 break;
                         }
                         Note n = new Note(valnota.Text, alterazione, int.Parse(ottavanota.Text), durata, stem, tie, new List<NoteBeamType>() { NoteBeamType.Single });
+                        if (ischordelement.Text == "Yes")
+                        {
+                            n.IsChordElement = true;
+                        }
                         viewer.AddMusicalSymbol(n);
                     }
                     else 
@@ -697,7 +701,12 @@ namespace MusicalProject
                     //aggiorna il viewer
                     viewer.Invalidate();
                     break;
-
+                case "dot":
+                    //punto nota
+                   // viewer.AddMusicalSymbol(new Dot());
+                    //aggiorna il viewer
+                    viewer.Invalidate();
+                    break;
                 default:
                     break;
             }

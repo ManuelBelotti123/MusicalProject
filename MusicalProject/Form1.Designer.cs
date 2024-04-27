@@ -42,6 +42,8 @@
             this.labelartisti = new System.Windows.Forms.Label();
             this.labeltitolo = new System.Windows.Forms.Label();
             this.pancreaspart = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboboxtie = new System.Windows.Forms.ComboBox();
             this.comboboxdurata = new System.Windows.Forms.ComboBox();
             this.comboboxdirection = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -76,8 +78,8 @@
             this.creacartella = new System.Windows.Forms.Button();
             this.creaplaylist = new System.Windows.Forms.Button();
             this.aggbrano = new System.Windows.Forms.Button();
-            this.comboboxtie = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.ischordelement = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -223,6 +225,8 @@
             // 
             // pancreaspart
             // 
+            this.pancreaspart.Controls.Add(this.label8);
+            this.pancreaspart.Controls.Add(this.ischordelement);
             this.pancreaspart.Controls.Add(this.label7);
             this.pancreaspart.Controls.Add(this.comboboxtie);
             this.pancreaspart.Controls.Add(this.comboboxdurata);
@@ -243,6 +247,29 @@
             this.pancreaspart.Name = "pancreaspart";
             this.pancreaspart.Size = new System.Drawing.Size(768, 583);
             this.pancreaspart.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(560, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 20);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Note Tie";
+            // 
+            // comboboxtie
+            // 
+            this.comboboxtie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxtie.FormattingEnabled = true;
+            this.comboboxtie.Items.AddRange(new object[] {
+            "Start",
+            "Stop",
+            "StopAndStartAnother",
+            "None"});
+            this.comboboxtie.Location = new System.Drawing.Point(573, 42);
+            this.comboboxtie.Name = "comboboxtie";
+            this.comboboxtie.Size = new System.Drawing.Size(44, 28);
+            this.comboboxtie.TabIndex = 17;
             // 
             // comboboxdurata
             // 
@@ -585,28 +612,26 @@
             this.aggbrano.UseVisualStyleBackColor = true;
             this.aggbrano.Click += new System.EventHandler(this.aggbrano_Click);
             // 
-            // comboboxtie
+            // ischordelement
             // 
-            this.comboboxtie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboboxtie.FormattingEnabled = true;
-            this.comboboxtie.Items.AddRange(new object[] {
-            "Start",
-            "Stop",
-            "StopAndStartAnother",
-            "None"});
-            this.comboboxtie.Location = new System.Drawing.Point(573, 42);
-            this.comboboxtie.Name = "comboboxtie";
-            this.comboboxtie.Size = new System.Drawing.Size(44, 28);
-            this.comboboxtie.TabIndex = 17;
+            this.ischordelement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ischordelement.FormattingEnabled = true;
+            this.ischordelement.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.ischordelement.Location = new System.Drawing.Point(668, 42);
+            this.ischordelement.Name = "ischordelement";
+            this.ischordelement.Size = new System.Drawing.Size(44, 28);
+            this.ischordelement.TabIndex = 19;
             // 
-            // label7
+            // label8
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(560, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 20);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Note Tie";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(631, 19);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(124, 20);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "IsChordElement";
             // 
             // Form1
             // 
@@ -689,6 +714,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboboxtie;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox ischordelement;
     }
 }
 
