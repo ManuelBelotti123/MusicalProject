@@ -8,20 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using PSAMControlLibrary;
+using PSAMControlLibrary;
 using NAudio;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using Newtonsoft.Json;
 using MusicalProject.Properties;
-using Manufaktura.Controls.Model;
-using Manufaktura.Controls.Extensions;
-using Manufaktura.Music.Model.MajorAndMinor;
-using Manufaktura.Music.Model;
-using Manufaktura.Controls.Rendering.Common;
-using Manufaktura.Controls.Rendering.Implementations;
-using Manufaktura.Controls.Rendering;
-using Manufaktura.Controls.Parser;
+//using Manufaktura.Controls.Model;
+//using Manufaktura.Controls.Extensions;
+//using Manufaktura.Music.Model.MajorAndMinor;
+//using Manufaktura.Music.Model;
+//using Manufaktura.Controls.Rendering.Common;
+//using Manufaktura.Controls.Rendering.Implementations;
+//using Manufaktura.Controls.Rendering;
+//using Manufaktura.Controls.Parser;
 using System.Xml;
 
 namespace MusicalProject
@@ -34,7 +34,7 @@ namespace MusicalProject
         AudioFileReader audioFileReader;
 
         //spartito crea
-        //IncipitViewer viewer;
+        IncipitViewer viewer;
 
         //lista globale brani
         List<IComponente> lbcp = new List<IComponente>();
@@ -467,6 +467,7 @@ namespace MusicalProject
             }
         }
 
+
         private void creaspart_Click(object sender, EventArgs e)
         {
             //visibilità pannello creazione spartito
@@ -474,17 +475,16 @@ namespace MusicalProject
             panspartcanz.Visible = false;
             panbrani.Visible = true;
 
-            //viewer = new IncipitViewer();
-            //viewer.Dock = DockStyle.Fill;
+            viewer = new IncipitViewer();
+            viewer.Dock = DockStyle.Fill;
 
             //aggiungi viewer a tabPage1
-            //tabPage1.Controls.Add(viewer);
+            tabPage1.Controls.Add(viewer);
         }
 
         private void addmusicalsymb_Click(object sender, EventArgs e)
         {
-            AddMusicSymbSpart();
-            /*switch (comboBox1.Text)
+            switch (comboBox1.Text)
             {
                 case "Barline":
                     //aggiungi una battuta al viewer
@@ -666,8 +666,8 @@ namespace MusicalProject
                         }
                         viewer.AddMusicalSymbol(n);
                     }
-                    else 
-                    { 
+                    else
+                    {
                         MessageBox.Show("Inserire un valore per la nota");
                     }
                     //aggiorna il viewer
@@ -713,16 +713,24 @@ namespace MusicalProject
                     break;
                 case "dot":
                     //punto nota
-                   // viewer.AddMusicalSymbol(new Dot());
+                    // viewer.AddMusicalSymbol(new Dot());
                     //aggiorna il viewer
                     viewer.Invalidate();
                     break;
                 default:
                     break;
-            }*/
+            }
         }
 
-        public void AddMusicSymbSpart()
+        private void remultimaagg_Click(object sender, EventArgs e)
+        {
+            //rimuovi ultimo simbolo aggiunto
+            viewer.RemoveLastMusicalSymbol();
+            //aggiorna il viewer
+            viewer.Invalidate();
+        }
+
+        /*public void AddMusicSymbSpart()
         {
             var score = Score.CreateOneStaffScore(Clef.Alto, new MajorScale(Step.C, false));
             var currentStaff = score.FirstStaff;
@@ -763,15 +771,7 @@ namespace MusicalProject
 
                     break;
             }
-        }
-
-        private void remultimaagg_Click(object sender, EventArgs e)
-        {
-            //rimuovi ultimo simbolo aggiunto
-            //viewer.RemoveLastMusicalSymbol();
-            //aggiorna il viewer
-            //viewer.Invalidate();
-        }
+        }*/
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
